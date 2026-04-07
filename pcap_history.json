@@ -1,0 +1,311 @@
+[
+  
+  {
+    "id": 7,
+    "filename": "Thursday-WorkingHours.pcap",
+    "file_path": "C:/Users/marie/Desktop/Dataset2017/Thursday-WorkingHours.pcap",
+    "file_size_gb": 7.73,
+    "selection_date": "2026-03-18 01:28:26",
+    "analysis_folder": "outputs\\Thursday-WorkingHours_20260318_012619",
+    "pcap_name": "Thursday-WorkingHours",
+    "timestamp": "20260318_012619",
+    "output_files": {
+      "eve.json": {
+        "size_kb": 752379.24,
+        "found": true
+      },
+      "suricata.log": {
+        "size_kb": 3.38,
+        "found": true
+      },
+      "stats.log": {
+        "size_kb": 168.74,
+        "found": true
+      },
+      "fast.log": {
+        "size_kb": 5873.8,
+        "found": true
+      }
+    }
+  },
+  {
+    "id": 8,
+    "filename": "Monday-WorkingHours.pcap",
+    "file_path": "C:/Users/marie/Desktop/Dataset2017/Monday-WorkingHours.pcap",
+    "file_size_gb": 10.08,
+    "selection_date": "2026-03-18 01:40:20",
+    "analysis_folder": "outputs\\Monday-WorkingHours_20260318_013600",
+    "pcap_name": "Monday-WorkingHours",
+    "timestamp": "20260318_013600",
+    "output_files": {
+      "eve.json": {
+        "size_kb": 834295.72,
+        "found": true
+      },
+      "suricata.log": {
+        "size_kb": 3.4,
+        "found": true
+      },
+      "stats.log": {
+        "size_kb": 384.61,
+        "found": true
+      },
+      "fast.log": {
+        "size_kb": 1549.19,
+        "found": true
+      }
+    }
+  },
+  {
+    "id": 9,
+    "filename": "Monday-WorkingHours.pcap",
+    "file_path": "C:/Users/marie/Desktop/Dataset2017/Monday-WorkingHours.pcap",
+    "file_size_gb": 10.08,
+    "selection_date": "2026-03-18 16:23:03",
+    "analysis_folder": "outputs\\Monday-WorkingHours_20260318_162119",
+    "pcap_name": "Monday-WorkingHours",
+    "timestamp": "20260318_162119",
+    "output_files": {
+      "eve.json": {
+        "size_kb": 834497.73,
+        "found": true
+      },
+      "suricata.log": {
+        "size_kb": 3.38,
+        "found": true
+      },
+      "stats.log": {
+        "size_kb": 147.34,
+        "found": true
+      },
+      "fast.log": {
+        "size_kb": 1549.2,
+        "found": true
+      }
+    }
+  },
+  {
+    "id": 10,
+    "filename": "Tuesday-WorkingHours.pcap",
+    "file_path": "C:/Users/marie/Desktop/Dataset2017/Tuesday-WorkingHours.pcap",
+    "file_size_gb": 10.29,
+    "selection_date": "2026-03-18 16:40:54",
+    "analysis_folder": "outputs\\Tuesday-WorkingHours_20260318_163831",
+    "pcap_name": "Tuesday-WorkingHours",
+    "timestamp": "20260318_163831",
+    "output_files": {
+      "eve.json": {
+        "size_kb": 716832.63,
+        "found": true
+      },
+      "suricata.log": {
+        "size_kb": 3.4,
+        "found": true
+      },
+      "stats.log": {
+        "size_kb": 206.99,
+        "found": true
+      },
+      "fast.log": {
+        "size_kb": 289.77,
+        "found": true
+      }
+    }
+  },
+  {
+    "id": 11,
+    "filename": "Friday-WorkingHours.pcap",
+    "file_path": "C:/Users/marie/Desktop/Dataset2017/Friday-WorkingHours.pcap",
+    "file_size_gb": 8.23,
+    "selection_date": "2026-03-18 16:55:20",
+    "analysis_folder": "outputs\\Friday-WorkingHours_20260318_165157",
+    "pcap_name": "Friday-WorkingHours",
+    "timestamp": "20260318_165157",
+    "output_files": {
+      "eve.json": {
+        "size_kb": 891500.37,
+        "found": true
+      },
+      "suricata.log": {
+        "size_kb": 3.4,
+        "found": true
+      },
+      "stats.log": {
+        "size_kb": 289.21,
+        "found": true
+      },
+      "fast.log": {
+        "size_kb": 297.16,
+        "found": true
+      }
+    }
+  },
+  {
+    "id": 12,
+    "filename": "Thursday-WorkingHours.pcap",
+    "file_path": "C:\\Users\\marie\\Desktop\\Dataset2017\\Thursday-WorkingHours.pcap",
+    "file_size_gb": 7.73,
+    "selection_date": "2026-03-19 12:47:37",
+    "analysis_folder": "outputs\\Thursday-WorkingHours_20260319_124441",
+    "pcap_name": "Thursday-WorkingHours",
+    "timestamp": "20260319_124441",
+    "output_files": {
+      "eve.json": {
+        "size_kb": 752763.54,
+        "found": true
+      },
+      "suricata.log": {
+        "size_kb": 3.35,
+        "found": true
+      },
+      "stats.log": {
+        "size_kb": 241.92,
+        "found": true
+      },
+      "fast.log": {
+        "size_kb": 5868.88,
+        "found": true
+      }
+    }
+  },
+  {
+    "id": 13,
+    "filename": "Wednesday-workingHours.pcap",
+    "file_path": "C:/Users/marie/Desktop/Dataset2017/Wednesday-workingHours.pcap",
+    "file_size_gb": 12.5,
+    "selection_date": "2026-03-19 14:23:12",
+    "analysis_folder": "outputs\\Wednesday-workingHours_20260319_141957",
+    "pcap_name": "Wednesday-workingHours",
+    "timestamp": "20260319_141957",
+    "output_files": {
+      "eve.json": {
+        "size_kb": 1045002.54,
+        "found": true
+      },
+      "suricata.log": {
+        "size_kb": 3.38,
+        "found": true
+      },
+      "stats.log": {
+        "size_kb": 273.48,
+        "found": true
+      },
+      "fast.log": {
+        "size_kb": 268.4,
+        "found": true
+      }
+    }
+  },
+  {
+    "id": 14,
+    "filename": "Wednesday-workingHours.pcap",
+    "file_path": "C:/Users/marie/Desktop/Dataset2017/Wednesday-workingHours.pcap",
+    "file_size_gb": 12.5,
+    "selection_date": "2026-03-19 14:32:32",
+    "analysis_folder": "outputs\\Wednesday-workingHours_20260319_142738",
+    "pcap_name": "Wednesday-workingHours",
+    "timestamp": "20260319_142738",
+    "output_files": {
+      "eve.json": {
+        "size_kb": 1046575.44,
+        "found": true
+      },
+      "suricata.log": {
+        "size_kb": 3.41,
+        "found": true
+      },
+      "stats.log": {
+        "size_kb": 427.39,
+        "found": true
+      },
+      "fast.log": {
+        "size_kb": 268.9,
+        "found": true
+      }
+    }
+  },
+  {
+    "id": 15,
+    "filename": "Friday-WorkingHours.pcap",
+    "file_path": "C:/Users/marie/Desktop/Dataset2017/Friday-WorkingHours.pcap",
+    "file_size_gb": 8.23,
+    "selection_date": "2026-03-19 14:56:55",
+    "analysis_folder": "outputs\\Friday-WorkingHours_20260319_145431",
+    "pcap_name": "Friday-WorkingHours",
+    "timestamp": "20260319_145431",
+    "output_files": {
+      "eve.json": {
+        "size_kb": 891342.61,
+        "found": true
+      },
+      "suricata.log": {
+        "size_kb": 3.38,
+        "found": true
+      },
+      "stats.log": {
+        "size_kb": 203.51,
+        "found": true
+      },
+      "fast.log": {
+        "size_kb": 337.18,
+        "found": true
+      }
+    }
+  },
+  {
+    "id": 16,
+    "filename": "Monday-WorkingHours.pcap",
+    "file_path": "C:/Users/marie/Desktop/Dataset2017/Monday-WorkingHours.pcap",
+    "file_size_gb": 10.08,
+    "selection_date": "2026-03-26 14:41:07",
+    "analysis_folder": "outputs\\Monday-WorkingHours_20260326_143627",
+    "pcap_name": "Monday-WorkingHours",
+    "timestamp": "20260326_143627",
+    "output_files": {
+      "eve.json": {
+        "size_kb": 834277.66,
+        "found": true
+      },
+      "suricata.log": {
+        "size_kb": 3.4,
+        "found": true
+      },
+      "stats.log": {
+        "size_kb": 410.25,
+        "found": true
+      },
+      "fast.log": {
+        "size_kb": 1549.2,
+        "found": true
+      }
+    }
+  },
+  {
+    "id": 17,
+    "filename": "Wednesday-workingHours.pcap",
+    "file_path": "C:/Users/marie/Desktop/Dataset2017/Wednesday-workingHours.pcap",
+    "file_size_gb": 12.5,
+    "selection_date": "2026-03-26 14:52:53",
+    "analysis_folder": "outputs\\Wednesday-workingHours_20260326_145025",
+    "pcap_name": "Wednesday-workingHours",
+    "timestamp": "20260326_145025",
+    "output_files": {
+      "eve.json": {
+        "size_kb": 1044618.7,
+        "found": true
+      },
+      "suricata.log": {
+        "size_kb": 3.41,
+        "found": true
+      },
+      "stats.log": {
+        "size_kb": 199.93,
+        "found": true
+      },
+      "fast.log": {
+        "size_kb": 268.34,
+        "found": true
+      }
+    }
+  }
+]
