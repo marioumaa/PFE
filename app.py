@@ -8,6 +8,7 @@ from typing import Optional, List, Dict, Any
 import tkinter as tk
 from tkinter import filedialog
 from suricata_analyzer import run_suricata_analysis, parse_eve_alerts, get_analysis_summary
+from cicflowmeter_analyzer import run_cicflowmeter_analysis
 from config import HISTORY_FILE
 from logger import setup_logging
 from utils import load_json_file, save_json_file, get_file_size_gb, get_file_size_kb
@@ -219,8 +220,16 @@ def _display_selected_pcap() -> None:
     st.divider()
     st.subheader("Analyse Suricata")
     
-    if st.button("Analyser avec Suricata", key="analyze_button"):
-        _run_analysis(file_path, file_size_gb)
+    # Boutons d'analyse
+    col_suricata, col_cicflow = st.columns(2)
+    
+    with col_suricata:
+        if st.button("Analyser avec Suricata", key="analyze_button", use_container_width=True):
+            _run_suricata_analysis(file_path, file_size_gb)
+    
+    with col_cicflow:
+        if st.button("Extraction de flow", key="flow_extraction_button", use_container_width=True):
+            _run_flow_extraction(file_path, file_size_gb)
     
     # Afficher les résultats s'ils existent
     if st.session_state.get('analysis_result') is not None:
@@ -252,7 +261,7 @@ def _display_file_selection() -> None:
      
 
 
-def _run_analysis(file_path: str, file_size_gb: float) -> None:
+def _run_suricata_analysis(file_path: str, file_size_gb: float) -> None:
     """Exécute l'analyse Suricata.
     
     Args:
@@ -260,7 +269,7 @@ def _run_analysis(file_path: str, file_size_gb: float) -> None:
         file_size_gb: Taille du fichier en GB
     """
     with st.spinner("Suricata analyse le fichier en cours... Cela peut prendre plusieurs minutes..."):
-        logger.info(f"Démarrage de l'analyse: {file_path}")
+        logger.info(f"Demarrage de l'analyse: {file_path}")
         analysis_result = run_suricata_analysis(file_path)
         
         if analysis_result["status"] == "success":
@@ -275,6 +284,44 @@ def _run_analysis(file_path: str, file_size_gb: float) -> None:
         else:
             st.error(analysis_result["message"])
 
+
+def _run_flow_extraction(file_path: str, file_size_gb: float) -> None:
+    """Exécute l'extraction de flows avec CICFlowMeter.
+    
+    Args:
+        file_path: Chemin du fichier PCAP
+        file_size_gb: Taille du fichier en GB
+    """
+    # Verifier que Suricata a d'abord été exécuté pour créer le dossier d'analyse
+    if not st.session_state.get('analysis_folder'):
+        st.error("Veuillez d'abord executer l'analyse Suricata pour creer le dossier d'analyse.")
+        return
+    
+    analysis_folder = st.session_state['analysis_folder']
+    
+    with st.spinner("Extraction des flows avec CICFlowMeter en cours... Cela peut prendre quelques minutes..."):
+        logger.info(f"Demarrage de l'extraction des flows: {file_path} -> {analysis_folder}")
+        
+        extraction_result = run_cicflowmeter_analysis(file_path, analysis_folder)
+        
+        if extraction_result["status"] == "success":
+            flows_csv_path = extraction_result.get("output_csv")
+            
+            # Sauvegarder le fichier dans l'historique
+            if flows_csv_path and os.path.exists(flows_csv_path):
+                file_size_kb = get_file_size_kb(flows_csv_path)
+                
+                # Stocker dans la session
+                st.session_state['flows_csv'] = flows_csv_path
+                
+                st.success(extraction_result["message"])
+                st.info(f"Fichier flows.csv genere avec succes ({file_size_kb:.2f} KB) dans {analysis_folder}")
+                st.rerun()
+            else:
+                st.error("Impossible de localiser le fichier flows.csv genere.")
+        else:
+            st.error(f"Erreur lors de l'extraction: {extraction_result['message']}")
+
 def display_analysis_results(analysis_folder: str) -> None:
     """Affiche les résultats de l'analyse Suricata.
     
@@ -286,13 +333,13 @@ def display_analysis_results(analysis_folder: str) -> None:
         return
     
     st.divider()
-    st.subheader("Résultats de l'Analyse")
+    st.subheader("Resultats de l'Analyse")
     
     # Obtenir les infos sur les fichiers générés
     files_summary = get_analysis_summary(analysis_folder)
     
     if files_summary and files_summary.get("status") == "success":
-        _display_generated_files(files_summary)
+        _display_generated_files(files_summary, analysis_folder)
     
     # Parser et afficher les alertes
     alerts_data = parse_eve_alerts(analysis_folder)
@@ -302,11 +349,12 @@ def display_analysis_results(analysis_folder: str) -> None:
         _display_alerts_charts(alerts_data)
 
 
-def _display_generated_files(files_summary: Dict[str, Any]) -> None:
-    """Affiche les fichiers générés par Suricata.
+def _display_generated_files(files_summary: Dict[str, Any], analysis_folder: str = None) -> None:
+    """Affiche les fichiers générés par Suricata et CICFlowMeter.
     
     Args:
         files_summary: Résumé des fichiers générés
+        analysis_folder: Dossier d'analyse pour vérifier les fichiers CICFlowMeter
     """
     st.write("**Fichiers générés par Suricata :**")
     col1, col2 = st.columns(2)
@@ -319,6 +367,17 @@ def _display_generated_files(files_summary: Dict[str, Any]) -> None:
                 st.caption(f"{info['description']} - {info['size_kb']:.2f} KB")
             else:
                 st.warning(f"Non trouvé - {filename}")
+    
+    # Afficher le fichier flows.csv s'il existe
+    if analysis_folder:
+        flows_csv_path = os.path.join(analysis_folder, "flows.csv")
+        if os.path.exists(flows_csv_path):
+            st.divider()
+            st.write("**Fichiers générés par CICFlowMeter :**")
+            file_size_kb = get_file_size_kb(flows_csv_path)
+            st.success(f"OK - flows.csv")
+            st.caption(f"Fichier CSV contenant les features des flows extraits - {file_size_kb:.2f} KB")
+
 
 
 def _display_alerts_statistics(alerts_data: Dict[str, Any]) -> None:

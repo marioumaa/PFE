@@ -1,0 +1,27 @@
+[7528 - Suricata-Main] 2026-04-16 16:59:24 Notice: suricata: This is Suricata version 8.0.3 RELEASE running in USER mode
+[7528 - Suricata-Main] 2026-04-16 16:59:24 Info: cpu: CPUs/cores online: 16
+[7528 - Suricata-Main] 2026-04-16 16:59:24 Notice: runmodes: thread stack size of 0 too small: setting to 512k
+[7528 - Suricata-Main] 2026-04-16 16:59:24 Info: suricata: Setting engine mode to IDS mode by default
+[7528 - Suricata-Main] 2026-04-16 16:59:24 Info: exception-policy: master exception-policy set to: auto
+[7528 - Suricata-Main] 2026-04-16 16:59:24 Info: coredump-config: Configuring core dump is not yet supported on Windows.
+[7528 - Suricata-Main] 2026-04-16 16:59:24 Info: logopenfile: fast output device (regular) initialized: fast.log
+[7528 - Suricata-Main] 2026-04-16 16:59:24 Info: logopenfile: eve-log output device (regular) initialized: eve.json
+[7528 - Suricata-Main] 2026-04-16 16:59:24 Info: logopenfile: stats output device (regular) initialized: stats.log
+[7528 - Suricata-Main] 2026-04-16 16:59:27 Info: detect: 47 rule files processed. 44989 rules successfully loaded, 0 rules failed, 0 rules skipped
+[7528 - Suricata-Main] 2026-04-16 16:59:27 Warning: threshold-config: Error opening file: "C:\Program Files\Suricata\\\threshold.config": No such file or directory
+[7528 - Suricata-Main] 2026-04-16 16:59:27 Info: detect: 44994 signatures processed. 1235 are IP-only rules, 4508 are inspecting packet payload, 39215 inspect application layer, 0 are decoder event only
+[7528 - Suricata-Main] 2026-04-16 16:59:27 Warning: detect-flowbits: flowbit 'et.DocVBAProject' is checked but not set. Checked in 2020170 and 0 other sigs
+[7528 - Suricata-Main] 2026-04-16 16:59:27 Warning: detect-flowbits: flowbit 'ET.generictelegram' is checked but not set. Checked in 2045614 and 0 other sigs
+[7528 - Suricata-Main] 2026-04-16 16:59:27 Warning: detect-flowbits: flowbit 'ET.implantjs.syn' is checked but not set. Checked in 2060257 and 2 other sigs
+[7528 - Suricata-Main] 2026-04-16 16:59:27 Warning: detect-flowbits: flowbit 'ET.telnet.busybox' is checked but not set. Checked in 2023019 and 2 other sigs
+[7528 - Suricata-Main] 2026-04-16 16:59:27 Warning: detect-flowbits: flowbit 'ET.JS.Obfus.Func' is checked but not set. Checked in 2017247 and 0 other sigs
+[7528 - Suricata-Main] 2026-04-16 16:59:27 Warning: detect-flowbits: flowbit 'ET.ZIP.Symlink.Inbound' is checked but not set. Checked in 2059742 and 2 other sigs
+[7528 - Suricata-Main] 2026-04-16 16:59:38 Warning: suricata: setrlimit unavailable.
+[8616 - RX#01] 2026-04-16 16:59:38 Info: pcap: Starting file run for C:/Users/marie/Downloads/right.pcap
+[8616 - RX#01] 2026-04-16 16:59:38 Info: checksum: No packets with invalid checksum, assuming checksum offloading is NOT used
+[7528 - Suricata-Main] 2026-04-16 16:59:38 Notice: threads: Threads created -> RX: 1 W: 16 FM: 1 FR: 1   Engine started.
+[8616 - RX#01] 2026-04-16 16:59:38 Info: pcap: pcap file C:/Users/marie/Downloads/right.pcap end of file reached (pcap err code 0)
+[7528 - Suricata-Main] 2026-04-16 16:59:38 Notice: suricata: Signal Received.  Stopping engine.
+[7528 - Suricata-Main] 2026-04-16 16:59:40 Info: suricata: time elapsed 1.799s
+[8616 - RX#01] 2026-04-16 16:59:40 Notice: pcap: read 1 file, 35124 packets, 2828098 bytes
+[7528 - Suricata-Main] 2026-04-16 16:59:40 Info: counters: Alerts: 0

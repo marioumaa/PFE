@@ -19,6 +19,10 @@ SURICATA_PATHS = [
     "suricata"
 ]
 
+# Configuration CICFlowMeter
+CICFLOWMETER_PATH = r"C:\Users\marie\Desktop\CICFlowMeter-master"
+CICFLOWMETER_TIMEOUT = 600  # 10 minutes
+CICFLOWMETER_COMMAND = ["mvn", "exec:java"]
 
 # Configuration des fichiers
 SURICATA_OUTPUT_FILES = {
@@ -28,6 +32,9 @@ SURICATA_OUTPUT_FILES = {
     "fast.log": "Alertes en format rapide"
 }
 
+CICFLOWMETER_OUTPUT_FILES = {
+    "flows.csv": "Fichier CSV contenant les features des flows extraits"
+}
 
 # Configuration JSON
 JSON_INDENT = 2

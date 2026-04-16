@@ -1,5 +1,4 @@
 [
-  
   {
     "id": 7,
     "filename": "Thursday-WorkingHours.pcap",
@@ -304,6 +303,90 @@
       },
       "fast.log": {
         "size_kb": 268.34,
+        "found": true
+      }
+    }
+  },
+  {
+    "id": 11,
+    "filename": "right.pcap",
+    "file_path": "C:/Users/marie/Downloads/right.pcap",
+    "file_size_gb": 0.0,
+    "selection_date": "2026-04-16 15:33:30",
+    "analysis_folder": "outputs\\right_20260416_153311",
+    "pcap_name": "right",
+    "timestamp": "20260416_153311",
+    "output_files": {
+      "eve.json": {
+        "size_kb": 8821.78,
+        "found": true
+      },
+      "suricata.log": {
+        "size_kb": 3.31,
+        "found": true
+      },
+      "stats.log": {
+        "size_kb": 6.51,
+        "found": true
+      },
+      "fast.log": {
+        "size_kb": 0.0,
+        "found": true
+      }
+    }
+  },
+  {
+    "id": 12,
+    "filename": "right.pcap",
+    "file_path": "C:/Users/marie/Downloads/right.pcap",
+    "file_size_gb": 0.0,
+    "selection_date": "2026-04-16 16:59:41",
+    "analysis_folder": "outputs\\right_20260416_165924",
+    "pcap_name": "right",
+    "timestamp": "20260416_165924",
+    "output_files": {
+      "eve.json": {
+        "size_kb": 8821.74,
+        "found": true
+      },
+      "suricata.log": {
+        "size_kb": 3.29,
+        "found": true
+      },
+      "stats.log": {
+        "size_kb": 6.51,
+        "found": true
+      },
+      "fast.log": {
+        "size_kb": 0.0,
+        "found": true
+      }
+    }
+  },
+  {
+    "id": 13,
+    "filename": "left.pcap",
+    "file_path": "C:/Users/marie/Downloads/left.pcap",
+    "file_size_gb": 0.03,
+    "selection_date": "2026-04-16 17:25:15",
+    "analysis_folder": "outputs\\left_20260416_172501",
+    "pcap_name": "left",
+    "timestamp": "20260416_172501",
+    "output_files": {
+      "eve.json": {
+        "size_kb": 55446.02,
+        "found": true
+      },
+      "suricata.log": {
+        "size_kb": 3.31,
+        "found": true
+      },
+      "stats.log": {
+        "size_kb": 7.19,
+        "found": true
+      },
+      "fast.log": {
+        "size_kb": 0.0,
         "found": true
       }
     }
