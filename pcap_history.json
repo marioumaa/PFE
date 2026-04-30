@@ -390,5 +390,89 @@
         "found": true
       }
     }
+  },
+  {
+    "id": 14,
+    "filename": "8202_tbd_ 6D2C12085F0018DAEB9C1A53E53FD4D1.pcap",
+    "file_path": "C:/Users/marie/Downloads/8202_tbd_ 6D2C12085F0018DAEB9C1A53E53FD4D1.pcap",
+    "file_size_gb": 0.0,
+    "selection_date": "2026-04-30 16:17:39",
+    "analysis_folder": "outputs\\8202_tbd_ 6D2C12085F0018DAEB9C1A53E53FD4D1_20260430_161723",
+    "pcap_name": "8202_tbd_ 6D2C12085F0018DAEB9C1A53E53FD4D1",
+    "timestamp": "20260430_161723",
+    "output_files": {
+      "eve.json": {
+        "size_kb": 38.86,
+        "found": true
+      },
+      "suricata.log": {
+        "size_kb": 3.26,
+        "found": true
+      },
+      "stats.log": {
+        "size_kb": 5.88,
+        "found": true
+      },
+      "fast.log": {
+        "size_kb": 0.0,
+        "found": true
+      }
+    }
+  },
+  {
+    "id": 15,
+    "filename": "pcap_telecharg.pcap",
+    "file_path": "C:/Users/marie/Downloads/pcap_telecharg.pcap",
+    "file_size_gb": 0.0,
+    "selection_date": "2026-04-30 16:34:21",
+    "analysis_folder": "outputs\\pcap_telecharg_20260430_163406",
+    "pcap_name": "pcap_telecharg",
+    "timestamp": "20260430_163406",
+    "output_files": {
+      "eve.json": {
+        "size_kb": 38.86,
+        "found": true
+      },
+      "suricata.log": {
+        "size_kb": 3.21,
+        "found": true
+      },
+      "stats.log": {
+        "size_kb": 5.79,
+        "found": true
+      },
+      "fast.log": {
+        "size_kb": 0.0,
+        "found": true
+      }
+    }
+  },
+  {
+    "id": 16,
+    "filename": "Wednesday-workingHours.pcap",
+    "file_path": "C:/Users/marie/Downloads/Wednesday-workingHours.pcap",
+    "file_size_gb": 12.5,
+    "selection_date": "2026-04-30 16:42:26",
+    "analysis_folder": "outputs\\Wednesday-workingHours_20260430_163741",
+    "pcap_name": "Wednesday-workingHours",
+    "timestamp": "20260430_163741",
+    "output_files": {
+      "eve.json": {
+        "size_kb": 1045465.17,
+        "found": true
+      },
+      "suricata.log": {
+        "size_kb": 3.37,
+        "found": true
+      },
+      "stats.log": {
+        "size_kb": 403.46,
+        "found": true
+      },
+      "fast.log": {
+        "size_kb": 268.65,
+        "found": true
+      }
+    }
   }
 ]
