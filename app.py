@@ -303,8 +303,11 @@ def _run_flow_extraction(file_path: str, file_size_gb: float) -> None:
         logger.info(f"Demarrage de l'extraction des flows: {file_path} -> {analysis_folder}")
         
         extraction_result = run_cicflowmeter_analysis(file_path, analysis_folder)
+        logger.info(f"Resultat de l'extraction CICFlowMeter: {extraction_result.get('status', 'unknown')}")
+        print(f"DEBUG: extraction_result keys = {list(extraction_result.keys()) if isinstance(extraction_result, dict) else 'not dict'}")
         
         if extraction_result["status"] == "success":
+            logger.info("Extraction CICFlowMeter réussie - traitement des résultats...")
             flows_csv_path = extraction_result.get("output_csv")
             
             # Sauvegarder le fichier dans l'historique
@@ -316,6 +319,27 @@ def _run_flow_extraction(file_path: str, file_size_gb: float) -> None:
                 
                 st.success(extraction_result["message"])
                 st.info(f"Fichier flows.csv genere avec succes ({file_size_kb:.2f} KB) dans {analysis_folder}")
+                
+                # Afficher les résultats ML si disponibles
+                ml_results = extraction_result.get("ml_results")
+                print(f"DEBUG: ml_results = {ml_results}")
+                if ml_results:
+                    print(f"DEBUG: ml_results status = {ml_results.get('status')}")
+                if ml_results and ml_results["status"] == "success":
+                    st.subheader("Résultats de l'Analyse ML")
+                
+                    
+                    st.write("**Résumé des prédictions:**")
+                    pred_summary = ml_results["prediction_summary"]
+                    for pred, count in pred_summary.items():
+                        st.write(f"- {pred}: {count} occurrences")
+                    
+                    # Afficher un aperçu des données traitées
+                    st.write("**Aperçu des données traitées:**")
+                    st.dataframe(ml_results["processed_data"].head(10))
+                elif ml_results:
+                    st.error(f"Erreur ML: {ml_results['message']}")
+                
                 st.rerun()
             else:
                 st.error("Impossible de localiser le fichier flows.csv genere.")

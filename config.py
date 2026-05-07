@@ -13,7 +13,7 @@ HISTORY_FILE = PROJECT_ROOT / "pcap_history.json"
 OUTPUTS_DIR.mkdir(exist_ok=True)
 
 # Configuration Suricata
-SURICATA_TIMEOUT = 600  # 10 minutes
+SURICATA_TIMEOUT = 1200  # 20 minutes
 SURICATA_PATHS = [
     r"C:\Program Files\Suricata\suricata.exe",
     "suricata"
@@ -21,8 +21,12 @@ SURICATA_PATHS = [
 
 # Configuration CICFlowMeter
 CICFLOWMETER_PATH = r"C:\Users\marie\Desktop\CICFlowMeter-master"
-CICFLOWMETER_TIMEOUT = 600  # 10 minutes
+CICFLOWMETER_TIMEOUT = 1200  # 20 minutes
 CICFLOWMETER_COMMAND = ["mvn", "exec:java"]
+
+
+# Configuration ML
+ML_MODEL_PATH = r"C:\Users\marie\Desktop\Dataset2018\Processed Traffic Data for ML Algorithms\randomforest_model.pkl"
 
 # Configuration des fichiers
 SURICATA_OUTPUT_FILES = {

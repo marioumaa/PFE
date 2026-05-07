@@ -474,5 +474,509 @@
         "found": true
       }
     }
+  },
+  {
+    "id": 17,
+    "filename": "right.pcap",
+    "file_path": "C:/Users/marie/Downloads/right.pcap",
+    "file_size_gb": 0.0,
+    "selection_date": "2026-05-06 14:53:34",
+    "analysis_folder": "outputs\\right_20260506_145322",
+    "pcap_name": "right",
+    "timestamp": "20260506_145322",
+    "output_files": {
+      "eve.json": {
+        "size_kb": 8821.76,
+        "found": true
+      },
+      "suricata.log": {
+        "size_kb": 3.31,
+        "found": true
+      },
+      "stats.log": {
+        "size_kb": 6.23,
+        "found": true
+      },
+      "fast.log": {
+        "size_kb": 0.0,
+        "found": true
+      }
+    }
+  },
+  {
+    "id": 18,
+    "filename": "right.pcap",
+    "file_path": "C:/Users/marie/Downloads/right.pcap",
+    "file_size_gb": 0.0,
+    "selection_date": "2026-05-06 15:02:35",
+    "analysis_folder": "outputs\\right_20260506_150219",
+    "pcap_name": "right",
+    "timestamp": "20260506_150219",
+    "output_files": {
+      "eve.json": {
+        "size_kb": 8821.76,
+        "found": true
+      },
+      "suricata.log": {
+        "size_kb": 3.27,
+        "found": true
+      },
+      "stats.log": {
+        "size_kb": 6.69,
+        "found": true
+      },
+      "fast.log": {
+        "size_kb": 0.0,
+        "found": true
+      }
+    }
+  },
+  {
+    "id": 19,
+    "filename": "right.pcap",
+    "file_path": "C:/Users/marie/Downloads/right.pcap",
+    "file_size_gb": 0.0,
+    "selection_date": "2026-05-06 15:14:27",
+    "analysis_folder": "outputs\\right_20260506_151409",
+    "pcap_name": "right",
+    "timestamp": "20260506_151409",
+    "output_files": {
+      "eve.json": {
+        "size_kb": 8821.79,
+        "found": true
+      },
+      "suricata.log": {
+        "size_kb": 3.32,
+        "found": true
+      },
+      "stats.log": {
+        "size_kb": 6.14,
+        "found": true
+      },
+      "fast.log": {
+        "size_kb": 0.0,
+        "found": true
+      }
+    }
+  },
+  {
+    "id": 20,
+    "filename": "right.pcap",
+    "file_path": "C:/Users/marie/Downloads/right.pcap",
+    "file_size_gb": 0.0,
+    "selection_date": "2026-05-06 15:20:45",
+    "analysis_folder": "outputs\\right_20260506_152029",
+    "pcap_name": "right",
+    "timestamp": "20260506_152029",
+    "output_files": {
+      "eve.json": {
+        "size_kb": 8821.81,
+        "found": true
+      },
+      "suricata.log": {
+        "size_kb": 3.31,
+        "found": true
+      },
+      "stats.log": {
+        "size_kb": 6.14,
+        "found": true
+      },
+      "fast.log": {
+        "size_kb": 0.0,
+        "found": true
+      }
+    }
+  },
+  {
+    "id": 21,
+    "filename": "left.pcap",
+    "file_path": "C:/Users/marie/Downloads/left.pcap",
+    "file_size_gb": 0.03,
+    "selection_date": "2026-05-06 15:32:18",
+    "analysis_folder": "outputs\\left_20260506_153157",
+    "pcap_name": "left",
+    "timestamp": "20260506_153157",
+    "output_files": {
+      "eve.json": {
+        "size_kb": 55446.06,
+        "found": true
+      },
+      "suricata.log": {
+        "size_kb": 3.32,
+        "found": true
+      },
+      "stats.log": {
+        "size_kb": 6.81,
+        "found": true
+      },
+      "fast.log": {
+        "size_kb": 0.0,
+        "found": true
+      }
+    }
+  },
+  {
+    "id": 22,
+    "filename": "bottom.pcap",
+    "file_path": "C:/Users/marie/Downloads/bottom.pcap",
+    "file_size_gb": 0.4,
+    "selection_date": "2026-05-06 15:51:10",
+    "analysis_folder": "outputs\\bottom_20260506_155052",
+    "pcap_name": "bottom",
+    "timestamp": "20260506_155052",
+    "output_files": {
+      "eve.json": {
+        "size_kb": 12465.12,
+        "found": true
+      },
+      "suricata.log": {
+        "size_kb": 3.3,
+        "found": true
+      },
+      "stats.log": {
+        "size_kb": 14.02,
+        "found": true
+      },
+      "fast.log": {
+        "size_kb": 0.0,
+        "found": true
+      }
+    }
+  },
+  {
+    "id": 23,
+    "filename": "bottom.pcap",
+    "file_path": "C:/Users/marie/Downloads/bottom.pcap",
+    "file_size_gb": 0.4,
+    "selection_date": "2026-05-06 16:07:55",
+    "analysis_folder": "outputs\\bottom_20260506_160737",
+    "pcap_name": "bottom",
+    "timestamp": "20260506_160737",
+    "output_files": {
+      "eve.json": {
+        "size_kb": 12464.79,
+        "found": true
+      },
+      "suricata.log": {
+        "size_kb": 3.3,
+        "found": true
+      },
+      "stats.log": {
+        "size_kb": 13.9,
+        "found": true
+      },
+      "fast.log": {
+        "size_kb": 0.0,
+        "found": true
+      }
+    }
+  },
+  {
+    "id": 24,
+    "filename": "bottom.pcap",
+    "file_path": "C:/Users/marie/Downloads/bottom.pcap",
+    "file_size_gb": 0.4,
+    "selection_date": "2026-05-07 09:09:09",
+    "analysis_folder": "outputs\\bottom_20260507_090849",
+    "pcap_name": "bottom",
+    "timestamp": "20260507_090849",
+    "output_files": {
+      "eve.json": {
+        "size_kb": 12465.1,
+        "found": true
+      },
+      "suricata.log": {
+        "size_kb": 3.32,
+        "found": true
+      },
+      "stats.log": {
+        "size_kb": 13.9,
+        "found": true
+      },
+      "fast.log": {
+        "size_kb": 0.0,
+        "found": true
+      }
+    }
+  },
+  {
+    "id": 25,
+    "filename": "right.pcap",
+    "file_path": "C:/Users/marie/Downloads/right.pcap",
+    "file_size_gb": 0.0,
+    "selection_date": "2026-05-07 11:54:42",
+    "analysis_folder": "outputs\\right_20260507_115432",
+    "pcap_name": "right",
+    "timestamp": "20260507_115432",
+    "output_files": {
+      "eve.json": {
+        "size_kb": 8821.77,
+        "found": true
+      },
+      "suricata.log": {
+        "size_kb": 3.32,
+        "found": true
+      },
+      "stats.log": {
+        "size_kb": 6.42,
+        "found": true
+      },
+      "fast.log": {
+        "size_kb": 0.0,
+        "found": true
+      }
+    }
+  },
+  {
+    "id": 26,
+    "filename": "left.pcap",
+    "file_path": "C:/Users/marie/Downloads/left.pcap",
+    "file_size_gb": 0.03,
+    "selection_date": "2026-05-07 12:46:41",
+    "analysis_folder": "outputs\\left_20260507_124622",
+    "pcap_name": "left",
+    "timestamp": "20260507_124622",
+    "output_files": {
+      "eve.json": {
+        "size_kb": 55446.0,
+        "found": true
+      },
+      "suricata.log": {
+        "size_kb": 3.32,
+        "found": true
+      },
+      "stats.log": {
+        "size_kb": 6.81,
+        "found": true
+      },
+      "fast.log": {
+        "size_kb": 0.0,
+        "found": true
+      }
+    }
+  },
+  {
+    "id": 27,
+    "filename": "left.pcap",
+    "file_path": "C:/Users/marie/Downloads/left.pcap",
+    "file_size_gb": 0.03,
+    "selection_date": "2026-05-07 16:25:38",
+    "analysis_folder": "outputs\\left_20260507_162527",
+    "pcap_name": "left",
+    "timestamp": "20260507_162527",
+    "output_files": {
+      "eve.json": {
+        "size_kb": 55446.06,
+        "found": true
+      },
+      "suricata.log": {
+        "size_kb": 3.31,
+        "found": true
+      },
+      "stats.log": {
+        "size_kb": 6.91,
+        "found": true
+      },
+      "fast.log": {
+        "size_kb": 0.0,
+        "found": true
+      }
+    }
+  },
+  {
+    "id": 28,
+    "filename": "left.pcap",
+    "file_path": "C:/Users/marie/Downloads/left.pcap",
+    "file_size_gb": 0.03,
+    "selection_date": "2026-05-07 16:28:36",
+    "analysis_folder": "outputs\\left_20260507_162824",
+    "pcap_name": "left",
+    "timestamp": "20260507_162824",
+    "output_files": {
+      "eve.json": {
+        "size_kb": 55446.04,
+        "found": true
+      },
+      "suricata.log": {
+        "size_kb": 3.29,
+        "found": true
+      },
+      "stats.log": {
+        "size_kb": 6.91,
+        "found": true
+      },
+      "fast.log": {
+        "size_kb": 0.0,
+        "found": true
+      }
+    }
+  },
+  {
+    "id": 29,
+    "filename": "left.pcap",
+    "file_path": "C:/Users/marie/Downloads/left.pcap",
+    "file_size_gb": 0.03,
+    "selection_date": "2026-05-07 16:29:56",
+    "analysis_folder": "outputs\\left_20260507_162949",
+    "pcap_name": "left",
+    "timestamp": "20260507_162949",
+    "output_files": {
+      "eve.json": {
+        "size_kb": 55445.87,
+        "found": true
+      },
+      "suricata.log": {
+        "size_kb": 3.29,
+        "found": true
+      },
+      "stats.log": {
+        "size_kb": 7.19,
+        "found": true
+      },
+      "fast.log": {
+        "size_kb": 0.0,
+        "found": true
+      }
+    }
+  },
+  {
+    "id": 30,
+    "filename": "right.pcap",
+    "file_path": "C:/Users/marie/Downloads/right.pcap",
+    "file_size_gb": 0.0,
+    "selection_date": "2026-05-07 16:40:03",
+    "analysis_folder": "outputs\\right_20260507_163947",
+    "pcap_name": "right",
+    "timestamp": "20260507_163947",
+    "output_files": {
+      "eve.json": {
+        "size_kb": 8821.79,
+        "found": true
+      },
+      "suricata.log": {
+        "size_kb": 3.32,
+        "found": true
+      },
+      "stats.log": {
+        "size_kb": 6.23,
+        "found": true
+      },
+      "fast.log": {
+        "size_kb": 0.0,
+        "found": true
+      }
+    }
+  },
+  {
+    "id": 31,
+    "filename": "left.pcap",
+    "file_path": "C:/Users/marie/Downloads/left.pcap",
+    "file_size_gb": 0.03,
+    "selection_date": "2026-05-07 16:58:06",
+    "analysis_folder": "outputs\\left_20260507_165748",
+    "pcap_name": "left",
+    "timestamp": "20260507_165748",
+    "output_files": {
+      "eve.json": {
+        "size_kb": 55445.87,
+        "found": true
+      },
+      "suricata.log": {
+        "size_kb": 3.31,
+        "found": true
+      },
+      "stats.log": {
+        "size_kb": 7.0,
+        "found": true
+      },
+      "fast.log": {
+        "size_kb": 0.0,
+        "found": true
+      }
+    }
+  },
+  {
+    "id": 32,
+    "filename": "bottom.pcap",
+    "file_path": "C:/Users/marie/Downloads/bottom.pcap",
+    "file_size_gb": 0.4,
+    "selection_date": "2026-05-07 17:50:06",
+    "analysis_folder": "outputs\\bottom_20260507_174943",
+    "pcap_name": "bottom",
+    "timestamp": "20260507_174943",
+    "output_files": {
+      "eve.json": {
+        "size_kb": 12456.29,
+        "found": true
+      },
+      "suricata.log": {
+        "size_kb": 3.32,
+        "found": true
+      },
+      "stats.log": {
+        "size_kb": 6.92,
+        "found": true
+      },
+      "fast.log": {
+        "size_kb": 0.0,
+        "found": true
+      }
+    }
+  },
+  {
+    "id": 33,
+    "filename": "right.pcap",
+    "file_path": "C:/Users/marie/Downloads/right.pcap",
+    "file_size_gb": 0.0,
+    "selection_date": "2026-05-07 17:52:43",
+    "analysis_folder": "outputs\\right_20260507_175226",
+    "pcap_name": "right",
+    "timestamp": "20260507_175226",
+    "output_files": {
+      "eve.json": {
+        "size_kb": 8821.73,
+        "found": true
+      },
+      "suricata.log": {
+        "size_kb": 3.29,
+        "found": true
+      },
+      "stats.log": {
+        "size_kb": 6.42,
+        "found": true
+      },
+      "fast.log": {
+        "size_kb": 0.0,
+        "found": true
+      }
+    }
+  },
+  {
+    "id": 34,
+    "filename": "bottom.pcap",
+    "file_path": "C:/Users/marie/Downloads/bottom.pcap",
+    "file_size_gb": 0.4,
+    "selection_date": "2026-05-07 18:07:17",
+    "analysis_folder": "outputs\\bottom_20260507_180654",
+    "pcap_name": "bottom",
+    "timestamp": "20260507_180654",
+    "output_files": {
+      "eve.json": {
+        "size_kb": 12464.94,
+        "found": true
+      },
+      "suricata.log": {
+        "size_kb": 3.32,
+        "found": true
+      },
+      "stats.log": {
+        "size_kb": 14.02,
+        "found": true
+      },
+      "fast.log": {
+        "size_kb": 0.0,
+        "found": true
+      }
+    }
   }
 ]
