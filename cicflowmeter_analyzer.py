@@ -185,12 +185,13 @@ def run_cicflowmeter_analysis(pcap_path: str, output_folder: str) -> Dict[str, A
         }
 
 
-def process_and_predict_csv(csv_path: str, model_path: str) -> Dict[str, Any]:
+def process_and_predict_csv(csv_path: str, model_path: str, label_encoder_path: str = r"C:\Users\marie\Desktop\Dataset2018\Processed Traffic Data for ML Algorithms\label_encoder.pkl") -> Dict[str, Any]:
     """Traite le CSV généré par CICFlowMeter et applique le modèle ML.
 
     Args:
         csv_path: Chemin du fichier CSV
         model_path: Chemin du modèle ML sauvegardé
+        label_encoder_path: Chemin du label_encoder sauvegardé
 
     Returns:
         Dictionnaire avec les résultats du traitement et prédictions
@@ -294,13 +295,21 @@ def process_and_predict_csv(csv_path: str, model_path: str) -> Dict[str, Any]:
         with open(model_path, 'rb') as f:
             model = pickle.load(f)
 
+        # Charger le label_encoder
+        logger.info(f"Chargement du label_encoder : {label_encoder_path}")
+        with open(label_encoder_path, 'rb') as f:
+            label_encoder = pickle.load(f)
+
         # Faire les prédictions
         logger.info("Application du modèle ML...")
         predictions = model.predict(df)
-        prediction_proba = model.predict_proba(df) if hasattr(model, 'predict_proba') else None
+        #prediction_proba = model.predict_proba(df) if hasattr(model, 'predict_proba') else None
 
-        # Compter les prédictions
-        unique_preds, counts = np.unique(predictions, return_counts=True)
+        # Décoder les prédictions avec les noms des labels
+        decoded_predictions = label_encoder.inverse_transform(predictions)
+
+        # Compter les prédictions décodées
+        unique_preds, counts = np.unique(decoded_predictions, return_counts=True)
         pred_summary = dict(zip(unique_preds, counts))
 
         logger.info(f"Prédictions terminées : {pred_summary}")
@@ -309,9 +318,9 @@ def process_and_predict_csv(csv_path: str, model_path: str) -> Dict[str, Any]:
         print(f"DEBUG: FIN process_and_predict_csv - SUCCES - {len(df)} lignes traitées")
         return {
             "status": "success",
-            "processed_data": df,
+           # "processed_data": df,
             "predictions": predictions,
-            "prediction_proba": prediction_proba,
+            #"prediction_proba": prediction_proba,
             "prediction_summary": pred_summary,
             "preprocessed_csv": preprocessed_csv_path
         }

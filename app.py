@@ -231,7 +231,24 @@ def _display_selected_pcap() -> None:
         if st.button("Extraction de flow", key="flow_extraction_button", use_container_width=True):
             _run_flow_extraction(file_path, file_size_gb)
     
-    # Afficher les résultats s'ils existent
+    # Afficher les résultats ML s'ils existent dans session_state
+    if st.session_state.get('ml_results') is not None:
+        ml_results = st.session_state['ml_results']
+        if ml_results and ml_results.get("status") == "success":
+            st.divider()
+            st.subheader("Résultats de l'Analyse ML - Classification des Flows")
+            
+            st.write("**Résumé des prédictions:**")
+            pred_summary = ml_results.get("prediction_summary", {})
+            if pred_summary:
+                for pred, count in pred_summary.items():
+                    st.write(f"- **{pred}**: {count} occurrences")
+            else:
+                st.info("Aucune prédiction disponible")
+        elif ml_results and ml_results.get("status") == "error":
+            st.error(f"Erreur ML: {ml_results.get('message', 'Erreur inconnue')}")
+    
+    # Afficher les résultats Suricata s'ils existent
     if st.session_state.get('analysis_result') is not None:
         if st.session_state['analysis_result'].get('status') == 'success':
             display_analysis_results(st.session_state['analysis_folder'])
@@ -304,7 +321,6 @@ def _run_flow_extraction(file_path: str, file_size_gb: float) -> None:
         
         extraction_result = run_cicflowmeter_analysis(file_path, analysis_folder)
         logger.info(f"Resultat de l'extraction CICFlowMeter: {extraction_result.get('status', 'unknown')}")
-        print(f"DEBUG: extraction_result keys = {list(extraction_result.keys()) if isinstance(extraction_result, dict) else 'not dict'}")
         
         if extraction_result["status"] == "success":
             logger.info("Extraction CICFlowMeter réussie - traitement des résultats...")
@@ -317,34 +333,22 @@ def _run_flow_extraction(file_path: str, file_size_gb: float) -> None:
                 # Stocker dans la session
                 st.session_state['flows_csv'] = flows_csv_path
                 
-                st.success(extraction_result["message"])
-                st.info(f"Fichier flows.csv genere avec succes ({file_size_kb:.2f} KB) dans {analysis_folder}")
-                
-                # Afficher les résultats ML si disponibles
+                # Stocker les résultats ML dans session_state AVANT de quitter le spinner
                 ml_results = extraction_result.get("ml_results")
-                print(f"DEBUG: ml_results = {ml_results}")
-                if ml_results:
-                    print(f"DEBUG: ml_results status = {ml_results.get('status')}")
-                if ml_results and ml_results["status"] == "success":
-                    st.subheader("Résultats de l'Analyse ML")
-                
-                    
-                    st.write("**Résumé des prédictions:**")
-                    pred_summary = ml_results["prediction_summary"]
-                    for pred, count in pred_summary.items():
-                        st.write(f"- {pred}: {count} occurrences")
-                    
-                    # Afficher un aperçu des données traitées
-                    st.write("**Aperçu des données traitées:**")
-                    st.dataframe(ml_results["processed_data"].head(10))
-                elif ml_results:
-                    st.error(f"Erreur ML: {ml_results['message']}")
-                
-                st.rerun()
+                st.session_state['ml_results'] = ml_results
             else:
                 st.error("Impossible de localiser le fichier flows.csv genere.")
+                return
         else:
             st.error(f"Erreur lors de l'extraction: {extraction_result['message']}")
+            return
+    
+    # AFFICHAGE EN DEHORS DU SPINNER - MESSAGES PERSISTANTS
+    st.success(extraction_result["message"])
+    st.info(f"Fichier flows.csv genere avec succes ({file_size_kb:.2f} KB) dans {analysis_folder}")
+    
+    # Rerun pour mettre à jour l'affichage avec les résultats ML
+    st.rerun()
 
 def display_analysis_results(analysis_folder: str) -> None:
     """Affiche les résultats de l'analyse Suricata.

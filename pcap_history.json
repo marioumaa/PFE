@@ -978,5 +978,173 @@
         "found": true
       }
     }
+  },
+  {
+    "id": 35,
+    "filename": "pcap_telecharg.pcap",
+    "file_path": "C:/Users/marie/Downloads/pcap_telecharg.pcap",
+    "file_size_gb": 0.0,
+    "selection_date": "2026-05-11 08:44:36",
+    "analysis_folder": "outputs\\pcap_telecharg_20260511_084427",
+    "pcap_name": "pcap_telecharg",
+    "timestamp": "20260511_084427",
+    "output_files": {
+      "eve.json": {
+        "size_kb": 38.86,
+        "found": true
+      },
+      "suricata.log": {
+        "size_kb": 3.21,
+        "found": true
+      },
+      "stats.log": {
+        "size_kb": 6.07,
+        "found": true
+      },
+      "fast.log": {
+        "size_kb": 0.0,
+        "found": true
+      }
+    }
+  },
+  {
+    "id": 36,
+    "filename": "Wednesday-workingHours.pcap",
+    "file_path": "C:/Users/marie/Desktop/Dataset2017/Wednesday-workingHours.pcap",
+    "file_size_gb": 12.5,
+    "selection_date": "2026-05-11 10:38:00",
+    "analysis_folder": "outputs\\Wednesday-workingHours_20260511_103540",
+    "pcap_name": "Wednesday-workingHours",
+    "timestamp": "20260511_103540",
+    "output_files": {
+      "eve.json": {
+        "size_kb": 1044945.18,
+        "found": true
+      },
+      "suricata.log": {
+        "size_kb": 3.4,
+        "found": true
+      },
+      "stats.log": {
+        "size_kb": 201.21,
+        "found": true
+      },
+      "fast.log": {
+        "size_kb": 268.65,
+        "found": true
+      }
+    }
+  },
+  {
+    "id": 37,
+    "filename": "Tuesday-WorkingHours.pcap",
+    "file_path": "C:/Users/marie/Desktop/Dataset2017/Tuesday-WorkingHours.pcap",
+    "file_size_gb": 10.29,
+    "selection_date": "2026-05-11 11:35:48",
+    "analysis_folder": "outputs\\Tuesday-WorkingHours_20260511_113327",
+    "pcap_name": "Tuesday-WorkingHours",
+    "timestamp": "20260511_113327",
+    "output_files": {
+      "eve.json": {
+        "size_kb": 719317.96,
+        "found": true
+      },
+      "suricata.log": {
+        "size_kb": 3.4,
+        "found": true
+      },
+      "stats.log": {
+        "size_kb": 206.93,
+        "found": true
+      },
+      "fast.log": {
+        "size_kb": 788.53,
+        "found": true
+      }
+    }
+  },
+  {
+    "id": 38,
+    "filename": "Monday-WorkingHours.pcap",
+    "file_path": "C:/Users/marie/Desktop/Dataset2017/Monday-WorkingHours.pcap",
+    "file_size_gb": 10.08,
+    "selection_date": "2026-05-11 12:05:44",
+    "analysis_folder": "outputs\\Monday-WorkingHours_20260511_120239",
+    "pcap_name": "Monday-WorkingHours",
+    "timestamp": "20260511_120239",
+    "output_files": {
+      "eve.json": {
+        "size_kb": 835168.36,
+        "found": true
+      },
+      "suricata.log": {
+        "size_kb": 3.38,
+        "found": true
+      },
+      "stats.log": {
+        "size_kb": 287.17,
+        "found": true
+      },
+      "fast.log": {
+        "size_kb": 1549.2,
+        "found": true
+      }
+    }
+  },
+  {
+    "id": 39,
+    "filename": "Thursday-WorkingHours.pcap",
+    "file_path": "C:/Users/marie/Desktop/Dataset2017/Thursday-WorkingHours.pcap",
+    "file_size_gb": 7.73,
+    "selection_date": "2026-05-11 13:21:40",
+    "analysis_folder": "outputs\\Thursday-WorkingHours_20260511_131932",
+    "pcap_name": "Thursday-WorkingHours",
+    "timestamp": "20260511_131932",
+    "output_files": {
+      "eve.json": {
+        "size_kb": 753781.85,
+        "found": true
+      },
+      "suricata.log": {
+        "size_kb": 3.35,
+        "found": true
+      },
+      "stats.log": {
+        "size_kb": 182.64,
+        "found": true
+      },
+      "fast.log": {
+        "size_kb": 5952.99,
+        "found": true
+      }
+    }
+  },
+  {
+    "id": 40,
+    "filename": "Friday-WorkingHours.pcap",
+    "file_path": "C:/Users/marie/Desktop/Dataset2017/Friday-WorkingHours.pcap",
+    "file_size_gb": 8.23,
+    "selection_date": "2026-05-11 13:53:58",
+    "analysis_folder": "outputs\\Friday-WorkingHours_20260511_135131",
+    "pcap_name": "Friday-WorkingHours",
+    "timestamp": "20260511_135131",
+    "output_files": {
+      "eve.json": {
+        "size_kb": 891624.49,
+        "found": true
+      },
+      "suricata.log": {
+        "size_kb": 3.4,
+        "found": true
+      },
+      "stats.log": {
+        "size_kb": 202.71,
+        "found": true
+      },
+      "fast.log": {
+        "size_kb": 337.32,
+        "found": true
+      }
+    }
   }
 ]

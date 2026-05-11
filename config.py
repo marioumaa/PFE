@@ -21,7 +21,7 @@ SURICATA_PATHS = [
 
 # Configuration CICFlowMeter
 CICFLOWMETER_PATH = r"C:\Users\marie\Desktop\CICFlowMeter-master"
-CICFLOWMETER_TIMEOUT = 1200  # 20 minutes
+CICFLOWMETER_TIMEOUT = 1800  # 30 minutes
 CICFLOWMETER_COMMAND = ["mvn", "exec:java"]
 
 
