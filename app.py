@@ -37,11 +37,29 @@ def _initialize_session_state() -> None:
     if 'selected_pcap' not in st.session_state:
         st.session_state['selected_pcap'] = None
     
+    if 'selected_pcap_name' not in st.session_state:
+        st.session_state['selected_pcap_name'] = None
+    
     if 'analysis_result' not in st.session_state:
         st.session_state['analysis_result'] = None
     
     if 'analysis_folder' not in st.session_state:
         st.session_state['analysis_folder'] = None
+    
+    if 'pipeline_started' not in st.session_state:
+        st.session_state['pipeline_started'] = False
+    
+    if 'pipeline_done' not in st.session_state:
+        st.session_state['pipeline_done'] = False
+    
+    if 'pipeline_status' not in st.session_state:
+        st.session_state['pipeline_status'] = None
+    
+    if 'ml_results' not in st.session_state:
+        st.session_state['ml_results'] = None
+    
+    if 'flows_csv' not in st.session_state:
+        st.session_state['flows_csv'] = None
 
 
 # ===== History Management =====
@@ -196,13 +214,17 @@ def upload_page() -> None:
 
     # Vérifier si un fichier est déjà sélectionné en session
     if st.session_state.get('selected_pcap'):
+        file_path = st.session_state['selected_pcap']
+        file_size_gb = get_file_size_gb(file_path)
         _display_selected_pcap()
+        if not st.session_state.get('pipeline_started'):
+            _run_analysis_pipeline(file_path, file_size_gb)
     else:
         _display_file_selection()
 
 
 def _display_selected_pcap() -> None:
-    """Affiche le fichier PCAP sélectionné et les options d'analyse."""
+    """Affiche le fichier PCAP sélectionné et le statut du pipeline d'analyse."""
     file_path = st.session_state['selected_pcap']
     filename = st.session_state.get('selected_pcap_name', os.path.basename(file_path))
     
@@ -218,18 +240,15 @@ def _display_selected_pcap() -> None:
         st.info(f"Taille: {file_size_gb:.2f} GB")
     
     st.divider()
-    st.subheader("Analyse Suricata")
+    st.subheader("Pipeline d'analyse automatique")
     
-    # Boutons d'analyse
-    col_suricata, col_cicflow = st.columns(2)
-    
-    with col_suricata:
-        if st.button("Analyser avec Suricata", key="analyze_button", use_container_width=True):
-            _run_suricata_analysis(file_path, file_size_gb)
-    
-    with col_cicflow:
-        if st.button("Extraction de flow", key="flow_extraction_button", use_container_width=True):
-            _run_flow_extraction(file_path, file_size_gb)
+    if st.session_state.get('pipeline_done'):
+        st.success("Pipeline terminé")
+    elif st.session_state.get('pipeline_started'):
+        status_message = st.session_state.get('pipeline_status', "Analyse en cours...")
+        st.info(status_message)
+    else:
+        st.info("Préparation du pipeline d'analyse...")
     
     # Afficher les résultats ML s'ils existent dans session_state
     if st.session_state.get('ml_results') is not None:
@@ -271,6 +290,13 @@ def _display_file_selection() -> None:
 
             st.session_state['selected_pcap'] = file_path
             st.session_state['selected_pcap_name'] = os.path.basename(file_path)
+            st.session_state['pipeline_started'] = False
+            st.session_state['pipeline_done'] = False
+            st.session_state['pipeline_status'] = None
+            st.session_state['analysis_result'] = None
+            st.session_state['analysis_folder'] = None
+            st.session_state['ml_results'] = None
+            st.session_state['flows_csv'] = None
 
             st.success("Fichier sélectionné avec succès !")
             st.rerun()
@@ -349,6 +375,58 @@ def _run_flow_extraction(file_path: str, file_size_gb: float) -> None:
     
     # Rerun pour mettre à jour l'affichage avec les résultats ML
     st.rerun()
+
+
+def _run_analysis_pipeline(file_path: str, file_size_gb: float) -> None:
+    """Exécute le pipeline complet Suricata -> CICFlowMeter -> ML."""
+    st.session_state['pipeline_started'] = True
+    st.session_state['pipeline_status'] = "Analyse Suricata en cours..."
+
+    with st.spinner(st.session_state['pipeline_status']):
+        logger.info(f"Demarrage de l'analyse Suricata: {file_path}")
+        analysis_result = run_suricata_analysis(file_path)
+
+        if analysis_result["status"] != "success":
+            st.session_state['analysis_result'] = analysis_result
+            st.session_state['pipeline_done'] = True
+            st.session_state['pipeline_status'] = "Échec de l'analyse Suricata"
+            st.error(analysis_result.get("message", "Erreur lors de l'analyse Suricata"))
+            return
+
+        st.session_state['analysis_result'] = analysis_result
+        st.session_state['analysis_folder'] = analysis_result['analysis_folder']
+        save_analysis_to_history(file_path, analysis_result, file_size_gb)
+
+    st.session_state['pipeline_status'] = "Extraction des flows avec CICFlowMeter en cours..."
+    analysis_folder = st.session_state['analysis_folder']
+
+    with st.spinner(st.session_state['pipeline_status']):
+        logger.info(f"Demarrage de l'extraction des flows: {file_path} -> {analysis_folder}")
+        extraction_result = run_cicflowmeter_analysis(file_path, analysis_folder)
+
+        if extraction_result["status"] != "success":
+            st.session_state['pipeline_done'] = True
+            st.session_state['pipeline_status'] = "Échec de l'extraction des flows"
+            st.error(extraction_result.get("message", "Erreur lors de l'extraction des flows"))
+            return
+
+        flows_csv_path = extraction_result.get("output_csv")
+        if flows_csv_path and os.path.exists(flows_csv_path):
+            file_size_kb = get_file_size_kb(flows_csv_path)
+            st.session_state['flows_csv'] = flows_csv_path
+            st.session_state['ml_results'] = extraction_result.get("ml_results")
+            st.session_state['pipeline_status'] = "Pipeline terminé"
+            st.session_state['pipeline_done'] = True
+            st.success(extraction_result["message"])
+            st.info(f"Fichier flows.csv genere avec succes ({file_size_kb:.2f} KB) dans {analysis_folder}")
+        else:
+            st.session_state['pipeline_done'] = True
+            st.session_state['pipeline_status'] = "Échec de l'extraction des flows"
+            st.error("Impossible de localiser le fichier flows.csv genere.")
+            return
+
+    st.rerun()
+
 
 def display_analysis_results(analysis_folder: str) -> None:
     """Affiche les résultats de l'analyse Suricata.
@@ -554,8 +632,7 @@ def _display_analysis_card(analysis: Dict[str, Any]) -> None:
         with st.expander("Voir les détails", expanded=False):
             st.write("**Informations générales :**")
             st.write(f"ID: {analysis.get('id', 'N/A')}")
-            st.write(f"Fichier: {analysis.get('filename', 'N/A')}")
-            st.write(f"Taille: {analysis.get('file_size_gb', 0):.2f} GB")
+            
             
             st.write("**Fichiers de sortie :**")
             output_files = analysis.get('output_files', {})
