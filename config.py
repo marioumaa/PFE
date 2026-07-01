@@ -25,8 +25,11 @@ CICFLOWMETER_TIMEOUT = 1800  # 30 minutes
 CICFLOWMETER_COMMAND = ["mvn", "exec:java"]
 
 
-# Configuration ML
-ML_MODEL_PATH = r"C:\Users\marie\Desktop\Dataset2018\Processed Traffic Data for ML Algorithms\randomforest_model.pkl"
+# Configuration ML - Classification
+ML_MODEL_PATH = r"C:\Users\marie\Desktop\Dataset2018\Processed Traffic Data for ML Algorithms\randomforestdernier_model.pkl"
+
+# Configuration ML - Détection d'anomalies (Unsupervised)
+ML_ANOMALY_MODEL_PATH = r"C:\Users\marie\Desktop\Dataset2018\Processed Traffic Data for ML Algorithms\Elliptic_Envelope.joblib"
 
 # Configuration des fichiers
 SURICATA_OUTPUT_FILES = {

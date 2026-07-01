@@ -110,9 +110,12 @@ def upload_page() -> None:
     if st.session_state.get('selected_pcap'):
         file_path = st.session_state['selected_pcap']
         file_size_gb = get_file_size_gb(file_path)
-        _display_selected_pcap()
         if not st.session_state.get('pipeline_started'):
+            st.session_state['pipeline_started'] = True
+            st.session_state['pipeline_status'] = "Préparation du pipeline d'analyse..."
+        if not st.session_state.get('pipeline_done'):
             _run_analysis_pipeline(file_path, file_size_gb)
+        _display_selected_pcap()
     else:
         _display_file_selection()
 
@@ -183,16 +186,60 @@ def _display_selected_pcap() -> None:
     if st.session_state.get('ml_results') is not None:
         ml_results = st.session_state['ml_results']
         if ml_results and ml_results.get("status") == "success":
-            st.divider()
-            st.subheader("Résultats de l'Analyse ML - Classification des Flows")
             
-            st.write("**Résumé des prédictions:**")
-            pred_summary = ml_results.get("prediction_summary", {})
-            if pred_summary:
-                for pred, count in pred_summary.items():
-                    st.write(f"- **{pred}**: {count} occurrences")
+            # ===== SECTION 1: DÉTECTION D'ANOMALIES =====
+            st.divider()
+            st.subheader("📊 Résultats - Détection d'Anomalies (Elliptic Envelope)")
+            
+            anomaly_det_results = ml_results.get("anomaly_detection_results", {})
+            if anomaly_det_results:
+                col1, col2, col3 = st.columns(3)
+                with col1:
+                    st.metric("Total Flows", anomaly_det_results.get("total_flows", 0))
+                with col2:
+                    st.metric("Flows Normaux", anomaly_det_results.get("normal_flows", 0), 
+                             delta=f"{anomaly_det_results.get('normal_flows', 0)}")
+                with col3:
+                    st.metric("Flows Anormaux", anomaly_det_results.get("anomaly_flows", 0),
+                             delta=f"{anomaly_det_results.get('anomaly_flows', 0)}", delta_color="off")
+                
+                st.info(
+                    f"""
+                    ✅ **Analyse d'Anomalies Complétée**
+                    - Total flows analysés: **{anomaly_det_results.get('total_flows', 0)}**
+                    - Flows normaux détectés: **{anomaly_det_results.get('normal_flows', 0)}**
+                    - Flows anormaux détectés: **{anomaly_det_results.get('anomaly_flows', 0)}**
+                    """
+                )
+            
+            # ===== SECTION 2: CLASSIFICATION DES ANOMALIES =====
+            classification_results = ml_results.get("classification_results", {})
+            if classification_results:
+                st.divider()
+                st.subheader("🎯 Résultats - Classification des Anomalies (RandomForest + Seuil 75%)")
+                
+                st.write("**Résumé de la classification des flows anormaux:**")
+                for attack_type, count in classification_results.items():
+                    if attack_type == 'unknown':
+                        st.warning(f"🔹 **{attack_type}** (confiance < 75%): {count} occurrences")
+                    else:
+                        st.write(f"🔹 **{attack_type}**: {count} occurrences")
+                
+                # Afficher un pie chart si plusieurs catégories
+                if len(classification_results) > 1:
+                    st.write("")
+                    import plotly.graph_objects as go
+                    fig = go.Figure(data=[go.Pie(
+                        labels=list(classification_results.keys()),
+                        values=list(classification_results.values()),
+                        hoverinfo="label+value+percent"
+                    )])
+                    fig.update_layout(title_text="Distribution de la Classification des Anomalies")
+                    st.plotly_chart(fig, use_container_width=True)
             else:
-                st.info("Aucune prédiction disponible")
+                st.info("ℹ️ Aucune anomalie détectée - classification non applicable")
+
+                    
         elif ml_results and ml_results.get("status") == "error":
             st.error(f"Erreur ML: {ml_results.get('message', 'Erreur inconnue')}")
     
@@ -206,6 +253,20 @@ def _display_selected_pcap() -> None:
                 _display_alerts_statistics(alerts_data)
                 _display_alerts_charts(alerts_data)
              
+    # Bouton pour relancer une nouvelle sélection/analyse
+    if st.session_state.get('pipeline_done'):
+        if st.button("Analyser de nouveau"):
+            st.session_state['selected_pcap'] = None
+            st.session_state['selected_pcap_name'] = None
+            st.session_state['pipeline_started'] = False
+            st.session_state['pipeline_done'] = False
+            st.session_state['pipeline_status'] = None
+            st.session_state['analysis_result'] = None
+            st.session_state['analysis_folder'] = None
+            st.session_state['ml_results'] = None
+            st.session_state['flows_csv'] = None
+            st.success("Prêt pour une nouvelle analyse.")
+            st.rerun()
 
             
 
@@ -260,7 +321,6 @@ def _run_suricata_analysis(file_path: str, file_size_gb: float) -> None:
             save_analysis_to_history(file_path, analysis_result, file_size_gb)
             
             st.success(analysis_result["message"])
-            st.rerun()
         else:
             st.error(analysis_result["message"])
 
@@ -295,23 +355,23 @@ def _run_flow_extraction(file_path: str, file_size_gb: float) -> None:
                 
                 # Stocker dans la session
                 st.session_state['flows_csv'] = flows_csv_path
-                
-                # Stocker les résultats ML dans session_state AVANT de quitter le spinner
-                ml_results = extraction_result.get("ml_results")
-                st.session_state['ml_results'] = ml_results
+                st.session_state['ml_results'] = extraction_result.get("ml_results")
+                st.session_state['pipeline_status'] = "Pipeline terminé"
+                st.session_state['pipeline_done'] = True
             else:
                 st.error("Impossible de localiser le fichier flows.csv genere.")
+                st.session_state['pipeline_done'] = True
+                st.session_state['pipeline_status'] = "Échec de l'extraction des flows"
                 return
         else:
             st.error(f"Erreur lors de l'extraction: {extraction_result['message']}")
+            st.session_state['pipeline_done'] = True
+            st.session_state['pipeline_status'] = "Échec de l'extraction des flows"
             return
     
     # AFFICHAGE EN DEHORS DU SPINNER - MESSAGES PERSISTANTS
     st.success(extraction_result["message"])
     st.info(f"Fichier flows.csv genere avec succes ({file_size_kb:.2f} KB) dans {analysis_folder}")
-    
-    # Rerun pour mettre à jour l'affichage avec les résultats ML
-    st.rerun()
 
 
 def _run_analysis_pipeline(file_path: str, file_size_gb: float) -> None:
@@ -348,21 +408,24 @@ def _run_analysis_pipeline(file_path: str, file_size_gb: float) -> None:
             return
 
         flows_csv_path = extraction_result.get("output_csv")
+        ml_results = extraction_result.get("ml_results")
         if flows_csv_path and os.path.exists(flows_csv_path):
             file_size_kb = get_file_size_kb(flows_csv_path)
             st.session_state['flows_csv'] = flows_csv_path
-            st.session_state['ml_results'] = extraction_result.get("ml_results")
+            st.session_state['ml_results'] = ml_results if isinstance(ml_results, dict) else {}
             st.session_state['pipeline_status'] = "Pipeline terminé"
             st.session_state['pipeline_done'] = True
-            st.success(extraction_result["message"])
-            st.info(f"Fichier flows.csv genere avec succes ({file_size_kb:.2f} KB) dans {analysis_folder}")
+
+            if not isinstance(ml_results, dict) or ml_results.get("status") != "success":
+                st.warning("Le pipeline ML a terminé avec des résultats incomplets. Vérifiez les logs ou le widget d'erreur.")
+            else:
+                st.success(extraction_result["message"])
+                st.info(f"Fichier flows.csv genere avec succes ({file_size_kb:.2f} KB) dans {analysis_folder}")
         else:
             st.session_state['pipeline_done'] = True
             st.session_state['pipeline_status'] = "Échec de l'extraction des flows"
             st.error("Impossible de localiser le fichier flows.csv genere.")
             return
-
-    st.rerun()
 
 
 
