@@ -1,2718 +1,304 @@
 [
   {
-    "id": 7,
+    "id": 0,
+    "filename": "Friday-WorkingHours.pcap",
+    "file_path": "C:/Users/marie/Desktop/Dataset2017/Friday-WorkingHours.pcap",
+    "file_size_gb": 8.23,
+    "selection_date": "2026-07-21 11:38:44",
+    "analysis_folder": "C:\\Users\\marie\\Desktop\\projet\\essai\\outputs\\Friday-WorkingHours_20260721_112116",
+    "pcap_name": "Friday-WorkingHours",
+    "timestamp": "20260721_112116",
+    "home_net_used": "192.168.10.0/24,205.174.165.66/32,205.174.165.68/32,205.174.165.80/32,172.16.0.1/32",
+    "output_files": {
+      "eve.json": {
+        "size_kb": 982554.04,
+        "found": true
+      },
+      "suricata.log": {
+        "size_kb": 2.41,
+        "found": true
+      },
+      "stats.log": {
+        "size_kb": 362.06,
+        "found": true
+      },
+      "fast.log": {
+        "size_kb": 3349.46,
+        "found": true
+      },
+      "Friday-WorkingHours.pcap_Flow_final.csv": {
+        "size_kb": 386341.62,
+        "found": true
+      }
+    },
+    "cicflowmeter_status": "success",
+    "preprocessing_status": "success",
+    "classification_status": "success",
+    "classification_distribution": {
+      "Benign": 687875,
+      "DoS attacks-SlowHTTPTest": 6150,
+      "FTP-BruteForce": 678,
+      "DoS attacks-Hulk": 51,
+      "DDoS attacks-LOIC-HTTP": 42,
+      "DoS attacks-Slowloris": 9,
+      "SSH-Bruteforce": 5,
+      "DoS attacks-GoldenEye": 5,
+      "DDOS attack-HOIC": 2
+    },
+    "anomaly_status": "success",
+    "anomaly_count": 204399,
+    "normal_count": 490418,
+    "unification_status": "success",
+    "matched_flows": 24084,
+    "unmatched_flows": 670733,
+    "risk_status": "success",
+    "risk_distribution": {
+      "CRITIQUE": 2645,
+      "ELEVE": 21467,
+      "MOYEN": 201754,
+      "NORMAL": 468951
+    },
+    "total_rows": 694817
+  },
+  {
+    "id": 1,
     "filename": "Thursday-WorkingHours.pcap",
     "file_path": "C:/Users/marie/Desktop/Dataset2017/Thursday-WorkingHours.pcap",
     "file_size_gb": 7.73,
-    "selection_date": "2026-03-18 01:28:26",
-    "analysis_folder": "outputs\\Thursday-WorkingHours_20260318_012619",
+    "selection_date": "2026-07-21 12:12:22",
+    "analysis_folder": "C:\\Users\\marie\\Desktop\\projet\\essai\\outputs\\Thursday-WorkingHours_20260721_120141",
     "pcap_name": "Thursday-WorkingHours",
-    "timestamp": "20260318_012619",
+    "timestamp": "20260721_120141",
+    "home_net_used": "192.168.10.0/24,205.174.165.66/32,205.174.165.68/32,205.174.165.80/32,172.16.0.1/32",
     "output_files": {
       "eve.json": {
-        "size_kb": 752379.24,
+        "size_kb": 773906.17,
         "found": true
       },
       "suricata.log": {
-        "size_kb": 3.38,
+        "size_kb": 2.37,
         "found": true
       },
       "stats.log": {
-        "size_kb": 168.74,
+        "size_kb": 242.55,
         "found": true
       },
       "fast.log": {
-        "size_kb": 5873.8,
+        "size_kb": 5285.28,
+        "found": true
+      },
+      "Thursday-WorkingHours.pcap_Flow_final.csv": {
+        "size_kb": 231392.02,
         "found": true
       }
-    }
+    },
+    "cicflowmeter_status": "success",
+    "preprocessing_status": "success",
+    "classification_status": "success",
+    "classification_distribution": {
+      "Benign": 408922,
+      "DoS attacks-SlowHTTPTest": 588,
+      "FTP-BruteForce": 263,
+      "DoS attacks-Slowloris": 185,
+      "DoS attacks-Hulk": 32,
+      "SSH-Bruteforce": 28,
+      "DoS attacks-GoldenEye": 16,
+      "DDoS attacks-LOIC-HTTP": 12
+    },
+    "anomaly_status": "success",
+    "anomaly_count": 91036,
+    "normal_count": 319010,
+    "unification_status": "success",
+    "matched_flows": 28728,
+    "unmatched_flows": 381318,
+    "risk_status": "success",
+    "risk_distribution": {
+      "CRITIQUE": 1433,
+      "ELEVE": 27323,
+      "MOYEN": 89603,
+      "NORMAL": 291687
+    },
+    "total_rows": 410046
   },
   {
-    "id": 8,
-    "filename": "Monday-WorkingHours.pcap",
-    "file_path": "C:/Users/marie/Desktop/Dataset2017/Monday-WorkingHours.pcap",
-    "file_size_gb": 10.08,
-    "selection_date": "2026-03-18 01:40:20",
-    "analysis_folder": "outputs\\Monday-WorkingHours_20260318_013600",
-    "pcap_name": "Monday-WorkingHours",
-    "timestamp": "20260318_013600",
-    "output_files": {
-      "eve.json": {
-        "size_kb": 834295.72,
-        "found": true
-      },
-      "suricata.log": {
-        "size_kb": 3.4,
-        "found": true
-      },
-      "stats.log": {
-        "size_kb": 384.61,
-        "found": true
-      },
-      "fast.log": {
-        "size_kb": 1549.19,
-        "found": true
-      }
-    }
-  },
-  {
-    "id": 9,
-    "filename": "Monday-WorkingHours.pcap",
-    "file_path": "C:/Users/marie/Desktop/Dataset2017/Monday-WorkingHours.pcap",
-    "file_size_gb": 10.08,
-    "selection_date": "2026-03-18 16:23:03",
-    "analysis_folder": "outputs\\Monday-WorkingHours_20260318_162119",
-    "pcap_name": "Monday-WorkingHours",
-    "timestamp": "20260318_162119",
-    "output_files": {
-      "eve.json": {
-        "size_kb": 834497.73,
-        "found": true
-      },
-      "suricata.log": {
-        "size_kb": 3.38,
-        "found": true
-      },
-      "stats.log": {
-        "size_kb": 147.34,
-        "found": true
-      },
-      "fast.log": {
-        "size_kb": 1549.2,
-        "found": true
-      }
-    }
-  },
-  {
-    "id": 10,
-    "filename": "Tuesday-WorkingHours.pcap",
-    "file_path": "C:/Users/marie/Desktop/Dataset2017/Tuesday-WorkingHours.pcap",
-    "file_size_gb": 10.29,
-    "selection_date": "2026-03-18 16:40:54",
-    "analysis_folder": "outputs\\Tuesday-WorkingHours_20260318_163831",
-    "pcap_name": "Tuesday-WorkingHours",
-    "timestamp": "20260318_163831",
-    "output_files": {
-      "eve.json": {
-        "size_kb": 716832.63,
-        "found": true
-      },
-      "suricata.log": {
-        "size_kb": 3.4,
-        "found": true
-      },
-      "stats.log": {
-        "size_kb": 206.99,
-        "found": true
-      },
-      "fast.log": {
-        "size_kb": 289.77,
-        "found": true
-      }
-    }
-  },
-  {
-    "id": 11,
-    "filename": "Friday-WorkingHours.pcap",
-    "file_path": "C:/Users/marie/Desktop/Dataset2017/Friday-WorkingHours.pcap",
-    "file_size_gb": 8.23,
-    "selection_date": "2026-03-18 16:55:20",
-    "analysis_folder": "outputs\\Friday-WorkingHours_20260318_165157",
-    "pcap_name": "Friday-WorkingHours",
-    "timestamp": "20260318_165157",
-    "output_files": {
-      "eve.json": {
-        "size_kb": 891500.37,
-        "found": true
-      },
-      "suricata.log": {
-        "size_kb": 3.4,
-        "found": true
-      },
-      "stats.log": {
-        "size_kb": 289.21,
-        "found": true
-      },
-      "fast.log": {
-        "size_kb": 297.16,
-        "found": true
-      }
-    }
-  },
-  {
-    "id": 12,
-    "filename": "Thursday-WorkingHours.pcap",
-    "file_path": "C:\\Users\\marie\\Desktop\\Dataset2017\\Thursday-WorkingHours.pcap",
-    "file_size_gb": 7.73,
-    "selection_date": "2026-03-19 12:47:37",
-    "analysis_folder": "outputs\\Thursday-WorkingHours_20260319_124441",
-    "pcap_name": "Thursday-WorkingHours",
-    "timestamp": "20260319_124441",
-    "output_files": {
-      "eve.json": {
-        "size_kb": 752763.54,
-        "found": true
-      },
-      "suricata.log": {
-        "size_kb": 3.35,
-        "found": true
-      },
-      "stats.log": {
-        "size_kb": 241.92,
-        "found": true
-      },
-      "fast.log": {
-        "size_kb": 5868.88,
-        "found": true
-      }
-    }
-  },
-  {
-    "id": 13,
-    "filename": "Wednesday-workingHours.pcap",
-    "file_path": "C:/Users/marie/Desktop/Dataset2017/Wednesday-workingHours.pcap",
-    "file_size_gb": 12.5,
-    "selection_date": "2026-03-19 14:23:12",
-    "analysis_folder": "outputs\\Wednesday-workingHours_20260319_141957",
-    "pcap_name": "Wednesday-workingHours",
-    "timestamp": "20260319_141957",
-    "output_files": {
-      "eve.json": {
-        "size_kb": 1045002.54,
-        "found": true
-      },
-      "suricata.log": {
-        "size_kb": 3.38,
-        "found": true
-      },
-      "stats.log": {
-        "size_kb": 273.48,
-        "found": true
-      },
-      "fast.log": {
-        "size_kb": 268.4,
-        "found": true
-      }
-    }
-  },
-  {
-    "id": 14,
-    "filename": "Wednesday-workingHours.pcap",
-    "file_path": "C:/Users/marie/Desktop/Dataset2017/Wednesday-workingHours.pcap",
-    "file_size_gb": 12.5,
-    "selection_date": "2026-03-19 14:32:32",
-    "analysis_folder": "outputs\\Wednesday-workingHours_20260319_142738",
-    "pcap_name": "Wednesday-workingHours",
-    "timestamp": "20260319_142738",
-    "output_files": {
-      "eve.json": {
-        "size_kb": 1046575.44,
-        "found": true
-      },
-      "suricata.log": {
-        "size_kb": 3.41,
-        "found": true
-      },
-      "stats.log": {
-        "size_kb": 427.39,
-        "found": true
-      },
-      "fast.log": {
-        "size_kb": 268.9,
-        "found": true
-      }
-    }
-  },
-  {
-    "id": 15,
-    "filename": "Friday-WorkingHours.pcap",
-    "file_path": "C:/Users/marie/Desktop/Dataset2017/Friday-WorkingHours.pcap",
-    "file_size_gb": 8.23,
-    "selection_date": "2026-03-19 14:56:55",
-    "analysis_folder": "outputs\\Friday-WorkingHours_20260319_145431",
-    "pcap_name": "Friday-WorkingHours",
-    "timestamp": "20260319_145431",
-    "output_files": {
-      "eve.json": {
-        "size_kb": 891342.61,
-        "found": true
-      },
-      "suricata.log": {
-        "size_kb": 3.38,
-        "found": true
-      },
-      "stats.log": {
-        "size_kb": 203.51,
-        "found": true
-      },
-      "fast.log": {
-        "size_kb": 337.18,
-        "found": true
-      }
-    }
-  },
-  {
-    "id": 16,
-    "filename": "Monday-WorkingHours.pcap",
-    "file_path": "C:/Users/marie/Desktop/Dataset2017/Monday-WorkingHours.pcap",
-    "file_size_gb": 10.08,
-    "selection_date": "2026-03-26 14:41:07",
-    "analysis_folder": "outputs\\Monday-WorkingHours_20260326_143627",
-    "pcap_name": "Monday-WorkingHours",
-    "timestamp": "20260326_143627",
-    "output_files": {
-      "eve.json": {
-        "size_kb": 834277.66,
-        "found": true
-      },
-      "suricata.log": {
-        "size_kb": 3.4,
-        "found": true
-      },
-      "stats.log": {
-        "size_kb": 410.25,
-        "found": true
-      },
-      "fast.log": {
-        "size_kb": 1549.2,
-        "found": true
-      }
-    }
-  },
-  {
-    "id": 17,
-    "filename": "Wednesday-workingHours.pcap",
-    "file_path": "C:/Users/marie/Desktop/Dataset2017/Wednesday-workingHours.pcap",
-    "file_size_gb": 12.5,
-    "selection_date": "2026-03-26 14:52:53",
-    "analysis_folder": "outputs\\Wednesday-workingHours_20260326_145025",
-    "pcap_name": "Wednesday-workingHours",
-    "timestamp": "20260326_145025",
-    "output_files": {
-      "eve.json": {
-        "size_kb": 1044618.7,
-        "found": true
-      },
-      "suricata.log": {
-        "size_kb": 3.41,
-        "found": true
-      },
-      "stats.log": {
-        "size_kb": 199.93,
-        "found": true
-      },
-      "fast.log": {
-        "size_kb": 268.34,
-        "found": true
-      }
-    }
-  },
-  {
-    "id": 11,
-    "filename": "right.pcap",
-    "file_path": "C:/Users/marie/Downloads/right.pcap",
-    "file_size_gb": 0.0,
-    "selection_date": "2026-04-16 15:33:30",
-    "analysis_folder": "outputs\\right_20260416_153311",
-    "pcap_name": "right",
-    "timestamp": "20260416_153311",
-    "output_files": {
-      "eve.json": {
-        "size_kb": 8821.78,
-        "found": true
-      },
-      "suricata.log": {
-        "size_kb": 3.31,
-        "found": true
-      },
-      "stats.log": {
-        "size_kb": 6.51,
-        "found": true
-      },
-      "fast.log": {
-        "size_kb": 0.0,
-        "found": true
-      }
-    }
-  },
-  {
-    "id": 12,
-    "filename": "right.pcap",
-    "file_path": "C:/Users/marie/Downloads/right.pcap",
-    "file_size_gb": 0.0,
-    "selection_date": "2026-04-16 16:59:41",
-    "analysis_folder": "outputs\\right_20260416_165924",
-    "pcap_name": "right",
-    "timestamp": "20260416_165924",
-    "output_files": {
-      "eve.json": {
-        "size_kb": 8821.74,
-        "found": true
-      },
-      "suricata.log": {
-        "size_kb": 3.29,
-        "found": true
-      },
-      "stats.log": {
-        "size_kb": 6.51,
-        "found": true
-      },
-      "fast.log": {
-        "size_kb": 0.0,
-        "found": true
-      }
-    }
-  },
-  {
-    "id": 13,
-    "filename": "left.pcap",
-    "file_path": "C:/Users/marie/Downloads/left.pcap",
-    "file_size_gb": 0.03,
-    "selection_date": "2026-04-16 17:25:15",
-    "analysis_folder": "outputs\\left_20260416_172501",
-    "pcap_name": "left",
-    "timestamp": "20260416_172501",
-    "output_files": {
-      "eve.json": {
-        "size_kb": 55446.02,
-        "found": true
-      },
-      "suricata.log": {
-        "size_kb": 3.31,
-        "found": true
-      },
-      "stats.log": {
-        "size_kb": 7.19,
-        "found": true
-      },
-      "fast.log": {
-        "size_kb": 0.0,
-        "found": true
-      }
-    }
-  },
-  {
-    "id": 14,
-    "filename": "8202_tbd_ 6D2C12085F0018DAEB9C1A53E53FD4D1.pcap",
-    "file_path": "C:/Users/marie/Downloads/8202_tbd_ 6D2C12085F0018DAEB9C1A53E53FD4D1.pcap",
-    "file_size_gb": 0.0,
-    "selection_date": "2026-04-30 16:17:39",
-    "analysis_folder": "outputs\\8202_tbd_ 6D2C12085F0018DAEB9C1A53E53FD4D1_20260430_161723",
-    "pcap_name": "8202_tbd_ 6D2C12085F0018DAEB9C1A53E53FD4D1",
-    "timestamp": "20260430_161723",
-    "output_files": {
-      "eve.json": {
-        "size_kb": 38.86,
-        "found": true
-      },
-      "suricata.log": {
-        "size_kb": 3.26,
-        "found": true
-      },
-      "stats.log": {
-        "size_kb": 5.88,
-        "found": true
-      },
-      "fast.log": {
-        "size_kb": 0.0,
-        "found": true
-      }
-    }
-  },
-  {
-    "id": 15,
-    "filename": "pcap_telecharg.pcap",
-    "file_path": "C:/Users/marie/Downloads/pcap_telecharg.pcap",
-    "file_size_gb": 0.0,
-    "selection_date": "2026-04-30 16:34:21",
-    "analysis_folder": "outputs\\pcap_telecharg_20260430_163406",
-    "pcap_name": "pcap_telecharg",
-    "timestamp": "20260430_163406",
-    "output_files": {
-      "eve.json": {
-        "size_kb": 38.86,
-        "found": true
-      },
-      "suricata.log": {
-        "size_kb": 3.21,
-        "found": true
-      },
-      "stats.log": {
-        "size_kb": 5.79,
-        "found": true
-      },
-      "fast.log": {
-        "size_kb": 0.0,
-        "found": true
-      }
-    }
-  },
-  {
-    "id": 16,
-    "filename": "Wednesday-workingHours.pcap",
-    "file_path": "C:/Users/marie/Downloads/Wednesday-workingHours.pcap",
-    "file_size_gb": 12.5,
-    "selection_date": "2026-04-30 16:42:26",
-    "analysis_folder": "outputs\\Wednesday-workingHours_20260430_163741",
-    "pcap_name": "Wednesday-workingHours",
-    "timestamp": "20260430_163741",
-    "output_files": {
-      "eve.json": {
-        "size_kb": 1045465.17,
-        "found": true
-      },
-      "suricata.log": {
-        "size_kb": 3.37,
-        "found": true
-      },
-      "stats.log": {
-        "size_kb": 403.46,
-        "found": true
-      },
-      "fast.log": {
-        "size_kb": 268.65,
-        "found": true
-      }
-    }
-  },
-  {
-    "id": 17,
-    "filename": "right.pcap",
-    "file_path": "C:/Users/marie/Downloads/right.pcap",
-    "file_size_gb": 0.0,
-    "selection_date": "2026-05-06 14:53:34",
-    "analysis_folder": "outputs\\right_20260506_145322",
-    "pcap_name": "right",
-    "timestamp": "20260506_145322",
-    "output_files": {
-      "eve.json": {
-        "size_kb": 8821.76,
-        "found": true
-      },
-      "suricata.log": {
-        "size_kb": 3.31,
-        "found": true
-      },
-      "stats.log": {
-        "size_kb": 6.23,
-        "found": true
-      },
-      "fast.log": {
-        "size_kb": 0.0,
-        "found": true
-      }
-    }
-  },
-  {
-    "id": 18,
-    "filename": "right.pcap",
-    "file_path": "C:/Users/marie/Downloads/right.pcap",
-    "file_size_gb": 0.0,
-    "selection_date": "2026-05-06 15:02:35",
-    "analysis_folder": "outputs\\right_20260506_150219",
-    "pcap_name": "right",
-    "timestamp": "20260506_150219",
-    "output_files": {
-      "eve.json": {
-        "size_kb": 8821.76,
-        "found": true
-      },
-      "suricata.log": {
-        "size_kb": 3.27,
-        "found": true
-      },
-      "stats.log": {
-        "size_kb": 6.69,
-        "found": true
-      },
-      "fast.log": {
-        "size_kb": 0.0,
-        "found": true
-      }
-    }
-  },
-  {
-    "id": 19,
-    "filename": "right.pcap",
-    "file_path": "C:/Users/marie/Downloads/right.pcap",
-    "file_size_gb": 0.0,
-    "selection_date": "2026-05-06 15:14:27",
-    "analysis_folder": "outputs\\right_20260506_151409",
-    "pcap_name": "right",
-    "timestamp": "20260506_151409",
-    "output_files": {
-      "eve.json": {
-        "size_kb": 8821.79,
-        "found": true
-      },
-      "suricata.log": {
-        "size_kb": 3.32,
-        "found": true
-      },
-      "stats.log": {
-        "size_kb": 6.14,
-        "found": true
-      },
-      "fast.log": {
-        "size_kb": 0.0,
-        "found": true
-      }
-    }
-  },
-  {
-    "id": 20,
-    "filename": "right.pcap",
-    "file_path": "C:/Users/marie/Downloads/right.pcap",
-    "file_size_gb": 0.0,
-    "selection_date": "2026-05-06 15:20:45",
-    "analysis_folder": "outputs\\right_20260506_152029",
-    "pcap_name": "right",
-    "timestamp": "20260506_152029",
-    "output_files": {
-      "eve.json": {
-        "size_kb": 8821.81,
-        "found": true
-      },
-      "suricata.log": {
-        "size_kb": 3.31,
-        "found": true
-      },
-      "stats.log": {
-        "size_kb": 6.14,
-        "found": true
-      },
-      "fast.log": {
-        "size_kb": 0.0,
-        "found": true
-      }
-    }
-  },
-  {
-    "id": 21,
-    "filename": "left.pcap",
-    "file_path": "C:/Users/marie/Downloads/left.pcap",
-    "file_size_gb": 0.03,
-    "selection_date": "2026-05-06 15:32:18",
-    "analysis_folder": "outputs\\left_20260506_153157",
-    "pcap_name": "left",
-    "timestamp": "20260506_153157",
-    "output_files": {
-      "eve.json": {
-        "size_kb": 55446.06,
-        "found": true
-      },
-      "suricata.log": {
-        "size_kb": 3.32,
-        "found": true
-      },
-      "stats.log": {
-        "size_kb": 6.81,
-        "found": true
-      },
-      "fast.log": {
-        "size_kb": 0.0,
-        "found": true
-      }
-    }
-  },
-  {
-    "id": 22,
-    "filename": "bottom.pcap",
-    "file_path": "C:/Users/marie/Downloads/bottom.pcap",
-    "file_size_gb": 0.4,
-    "selection_date": "2026-05-06 15:51:10",
-    "analysis_folder": "outputs\\bottom_20260506_155052",
-    "pcap_name": "bottom",
-    "timestamp": "20260506_155052",
-    "output_files": {
-      "eve.json": {
-        "size_kb": 12465.12,
-        "found": true
-      },
-      "suricata.log": {
-        "size_kb": 3.3,
-        "found": true
-      },
-      "stats.log": {
-        "size_kb": 14.02,
-        "found": true
-      },
-      "fast.log": {
-        "size_kb": 0.0,
-        "found": true
-      }
-    }
-  },
-  {
-    "id": 23,
-    "filename": "bottom.pcap",
-    "file_path": "C:/Users/marie/Downloads/bottom.pcap",
-    "file_size_gb": 0.4,
-    "selection_date": "2026-05-06 16:07:55",
-    "analysis_folder": "outputs\\bottom_20260506_160737",
-    "pcap_name": "bottom",
-    "timestamp": "20260506_160737",
-    "output_files": {
-      "eve.json": {
-        "size_kb": 12464.79,
-        "found": true
-      },
-      "suricata.log": {
-        "size_kb": 3.3,
-        "found": true
-      },
-      "stats.log": {
-        "size_kb": 13.9,
-        "found": true
-      },
-      "fast.log": {
-        "size_kb": 0.0,
-        "found": true
-      }
-    }
-  },
-  {
-    "id": 24,
-    "filename": "bottom.pcap",
-    "file_path": "C:/Users/marie/Downloads/bottom.pcap",
-    "file_size_gb": 0.4,
-    "selection_date": "2026-05-07 09:09:09",
-    "analysis_folder": "outputs\\bottom_20260507_090849",
-    "pcap_name": "bottom",
-    "timestamp": "20260507_090849",
-    "output_files": {
-      "eve.json": {
-        "size_kb": 12465.1,
-        "found": true
-      },
-      "suricata.log": {
-        "size_kb": 3.32,
-        "found": true
-      },
-      "stats.log": {
-        "size_kb": 13.9,
-        "found": true
-      },
-      "fast.log": {
-        "size_kb": 0.0,
-        "found": true
-      }
-    }
-  },
-  {
-    "id": 25,
-    "filename": "right.pcap",
-    "file_path": "C:/Users/marie/Downloads/right.pcap",
-    "file_size_gb": 0.0,
-    "selection_date": "2026-05-07 11:54:42",
-    "analysis_folder": "outputs\\right_20260507_115432",
-    "pcap_name": "right",
-    "timestamp": "20260507_115432",
-    "output_files": {
-      "eve.json": {
-        "size_kb": 8821.77,
-        "found": true
-      },
-      "suricata.log": {
-        "size_kb": 3.32,
-        "found": true
-      },
-      "stats.log": {
-        "size_kb": 6.42,
-        "found": true
-      },
-      "fast.log": {
-        "size_kb": 0.0,
-        "found": true
-      }
-    }
-  },
-  {
-    "id": 26,
-    "filename": "left.pcap",
-    "file_path": "C:/Users/marie/Downloads/left.pcap",
-    "file_size_gb": 0.03,
-    "selection_date": "2026-05-07 12:46:41",
-    "analysis_folder": "outputs\\left_20260507_124622",
-    "pcap_name": "left",
-    "timestamp": "20260507_124622",
-    "output_files": {
-      "eve.json": {
-        "size_kb": 55446.0,
-        "found": true
-      },
-      "suricata.log": {
-        "size_kb": 3.32,
-        "found": true
-      },
-      "stats.log": {
-        "size_kb": 6.81,
-        "found": true
-      },
-      "fast.log": {
-        "size_kb": 0.0,
-        "found": true
-      }
-    }
-  },
-  {
-    "id": 27,
-    "filename": "left.pcap",
-    "file_path": "C:/Users/marie/Downloads/left.pcap",
-    "file_size_gb": 0.03,
-    "selection_date": "2026-05-07 16:25:38",
-    "analysis_folder": "outputs\\left_20260507_162527",
-    "pcap_name": "left",
-    "timestamp": "20260507_162527",
-    "output_files": {
-      "eve.json": {
-        "size_kb": 55446.06,
-        "found": true
-      },
-      "suricata.log": {
-        "size_kb": 3.31,
-        "found": true
-      },
-      "stats.log": {
-        "size_kb": 6.91,
-        "found": true
-      },
-      "fast.log": {
-        "size_kb": 0.0,
-        "found": true
-      }
-    }
-  },
-  {
-    "id": 28,
-    "filename": "left.pcap",
-    "file_path": "C:/Users/marie/Downloads/left.pcap",
-    "file_size_gb": 0.03,
-    "selection_date": "2026-05-07 16:28:36",
-    "analysis_folder": "outputs\\left_20260507_162824",
-    "pcap_name": "left",
-    "timestamp": "20260507_162824",
-    "output_files": {
-      "eve.json": {
-        "size_kb": 55446.04,
-        "found": true
-      },
-      "suricata.log": {
-        "size_kb": 3.29,
-        "found": true
-      },
-      "stats.log": {
-        "size_kb": 6.91,
-        "found": true
-      },
-      "fast.log": {
-        "size_kb": 0.0,
-        "found": true
-      }
-    }
-  },
-  {
-    "id": 29,
-    "filename": "left.pcap",
-    "file_path": "C:/Users/marie/Downloads/left.pcap",
-    "file_size_gb": 0.03,
-    "selection_date": "2026-05-07 16:29:56",
-    "analysis_folder": "outputs\\left_20260507_162949",
-    "pcap_name": "left",
-    "timestamp": "20260507_162949",
-    "output_files": {
-      "eve.json": {
-        "size_kb": 55445.87,
-        "found": true
-      },
-      "suricata.log": {
-        "size_kb": 3.29,
-        "found": true
-      },
-      "stats.log": {
-        "size_kb": 7.19,
-        "found": true
-      },
-      "fast.log": {
-        "size_kb": 0.0,
-        "found": true
-      }
-    }
-  },
-  {
-    "id": 30,
-    "filename": "right.pcap",
-    "file_path": "C:/Users/marie/Downloads/right.pcap",
-    "file_size_gb": 0.0,
-    "selection_date": "2026-05-07 16:40:03",
-    "analysis_folder": "outputs\\right_20260507_163947",
-    "pcap_name": "right",
-    "timestamp": "20260507_163947",
-    "output_files": {
-      "eve.json": {
-        "size_kb": 8821.79,
-        "found": true
-      },
-      "suricata.log": {
-        "size_kb": 3.32,
-        "found": true
-      },
-      "stats.log": {
-        "size_kb": 6.23,
-        "found": true
-      },
-      "fast.log": {
-        "size_kb": 0.0,
-        "found": true
-      }
-    }
-  },
-  {
-    "id": 31,
-    "filename": "left.pcap",
-    "file_path": "C:/Users/marie/Downloads/left.pcap",
-    "file_size_gb": 0.03,
-    "selection_date": "2026-05-07 16:58:06",
-    "analysis_folder": "outputs\\left_20260507_165748",
-    "pcap_name": "left",
-    "timestamp": "20260507_165748",
-    "output_files": {
-      "eve.json": {
-        "size_kb": 55445.87,
-        "found": true
-      },
-      "suricata.log": {
-        "size_kb": 3.31,
-        "found": true
-      },
-      "stats.log": {
-        "size_kb": 7.0,
-        "found": true
-      },
-      "fast.log": {
-        "size_kb": 0.0,
-        "found": true
-      }
-    }
-  },
-  {
-    "id": 32,
-    "filename": "bottom.pcap",
-    "file_path": "C:/Users/marie/Downloads/bottom.pcap",
-    "file_size_gb": 0.4,
-    "selection_date": "2026-05-07 17:50:06",
-    "analysis_folder": "outputs\\bottom_20260507_174943",
-    "pcap_name": "bottom",
-    "timestamp": "20260507_174943",
-    "output_files": {
-      "eve.json": {
-        "size_kb": 12456.29,
-        "found": true
-      },
-      "suricata.log": {
-        "size_kb": 3.32,
-        "found": true
-      },
-      "stats.log": {
-        "size_kb": 6.92,
-        "found": true
-      },
-      "fast.log": {
-        "size_kb": 0.0,
-        "found": true
-      }
-    }
-  },
-  {
-    "id": 33,
-    "filename": "right.pcap",
-    "file_path": "C:/Users/marie/Downloads/right.pcap",
-    "file_size_gb": 0.0,
-    "selection_date": "2026-05-07 17:52:43",
-    "analysis_folder": "outputs\\right_20260507_175226",
-    "pcap_name": "right",
-    "timestamp": "20260507_175226",
-    "output_files": {
-      "eve.json": {
-        "size_kb": 8821.73,
-        "found": true
-      },
-      "suricata.log": {
-        "size_kb": 3.29,
-        "found": true
-      },
-      "stats.log": {
-        "size_kb": 6.42,
-        "found": true
-      },
-      "fast.log": {
-        "size_kb": 0.0,
-        "found": true
-      }
-    }
-  },
-  {
-    "id": 34,
-    "filename": "bottom.pcap",
-    "file_path": "C:/Users/marie/Downloads/bottom.pcap",
-    "file_size_gb": 0.4,
-    "selection_date": "2026-05-07 18:07:17",
-    "analysis_folder": "outputs\\bottom_20260507_180654",
-    "pcap_name": "bottom",
-    "timestamp": "20260507_180654",
-    "output_files": {
-      "eve.json": {
-        "size_kb": 12464.94,
-        "found": true
-      },
-      "suricata.log": {
-        "size_kb": 3.32,
-        "found": true
-      },
-      "stats.log": {
-        "size_kb": 14.02,
-        "found": true
-      },
-      "fast.log": {
-        "size_kb": 0.0,
-        "found": true
-      }
-    }
-  },
-  {
-    "id": 35,
-    "filename": "pcap_telecharg.pcap",
-    "file_path": "C:/Users/marie/Downloads/pcap_telecharg.pcap",
-    "file_size_gb": 0.0,
-    "selection_date": "2026-05-11 08:44:36",
-    "analysis_folder": "outputs\\pcap_telecharg_20260511_084427",
-    "pcap_name": "pcap_telecharg",
-    "timestamp": "20260511_084427",
-    "output_files": {
-      "eve.json": {
-        "size_kb": 38.86,
-        "found": true
-      },
-      "suricata.log": {
-        "size_kb": 3.21,
-        "found": true
-      },
-      "stats.log": {
-        "size_kb": 6.07,
-        "found": true
-      },
-      "fast.log": {
-        "size_kb": 0.0,
-        "found": true
-      }
-    }
-  },
-  {
-    "id": 36,
-    "filename": "Wednesday-workingHours.pcap",
-    "file_path": "C:/Users/marie/Desktop/Dataset2017/Wednesday-workingHours.pcap",
-    "file_size_gb": 12.5,
-    "selection_date": "2026-05-11 10:38:00",
-    "analysis_folder": "outputs\\Wednesday-workingHours_20260511_103540",
-    "pcap_name": "Wednesday-workingHours",
-    "timestamp": "20260511_103540",
-    "output_files": {
-      "eve.json": {
-        "size_kb": 1044945.18,
-        "found": true
-      },
-      "suricata.log": {
-        "size_kb": 3.4,
-        "found": true
-      },
-      "stats.log": {
-        "size_kb": 201.21,
-        "found": true
-      },
-      "fast.log": {
-        "size_kb": 268.65,
-        "found": true
-      }
-    }
-  },
-  {
-    "id": 37,
-    "filename": "Tuesday-WorkingHours.pcap",
-    "file_path": "C:/Users/marie/Desktop/Dataset2017/Tuesday-WorkingHours.pcap",
-    "file_size_gb": 10.29,
-    "selection_date": "2026-05-11 11:35:48",
-    "analysis_folder": "outputs\\Tuesday-WorkingHours_20260511_113327",
-    "pcap_name": "Tuesday-WorkingHours",
-    "timestamp": "20260511_113327",
-    "output_files": {
-      "eve.json": {
-        "size_kb": 719317.96,
-        "found": true
-      },
-      "suricata.log": {
-        "size_kb": 3.4,
-        "found": true
-      },
-      "stats.log": {
-        "size_kb": 206.93,
-        "found": true
-      },
-      "fast.log": {
-        "size_kb": 788.53,
-        "found": true
-      }
-    }
-  },
-  {
-    "id": 38,
-    "filename": "Monday-WorkingHours.pcap",
-    "file_path": "C:/Users/marie/Desktop/Dataset2017/Monday-WorkingHours.pcap",
-    "file_size_gb": 10.08,
-    "selection_date": "2026-05-11 12:05:44",
-    "analysis_folder": "outputs\\Monday-WorkingHours_20260511_120239",
-    "pcap_name": "Monday-WorkingHours",
-    "timestamp": "20260511_120239",
-    "output_files": {
-      "eve.json": {
-        "size_kb": 835168.36,
-        "found": true
-      },
-      "suricata.log": {
-        "size_kb": 3.38,
-        "found": true
-      },
-      "stats.log": {
-        "size_kb": 287.17,
-        "found": true
-      },
-      "fast.log": {
-        "size_kb": 1549.2,
-        "found": true
-      }
-    }
-  },
-  {
-    "id": 39,
+    "id": 2,
     "filename": "Thursday-WorkingHours.pcap",
     "file_path": "C:/Users/marie/Desktop/Dataset2017/Thursday-WorkingHours.pcap",
     "file_size_gb": 7.73,
-    "selection_date": "2026-05-11 13:21:40",
-    "analysis_folder": "outputs\\Thursday-WorkingHours_20260511_131932",
+    "selection_date": "2026-07-21 12:56:39",
+    "analysis_folder": "C:\\Users\\marie\\Desktop\\projet\\essai\\outputs\\Thursday-WorkingHours_20260721_124620",
     "pcap_name": "Thursday-WorkingHours",
-    "timestamp": "20260511_131932",
+    "timestamp": "20260721_124620",
+    "home_net_used": "192.168.10.0/24,205.174.165.66/32,205.174.165.68/32,205.174.165.80/32,172.16.0.1/32",
     "output_files": {
       "eve.json": {
-        "size_kb": 753781.85,
+        "size_kb": 773359.1,
         "found": true
       },
       "suricata.log": {
-        "size_kb": 3.35,
+        "size_kb": 2.37,
         "found": true
       },
       "stats.log": {
-        "size_kb": 182.64,
+        "size_kb": 204.73,
         "found": true
       },
       "fast.log": {
-        "size_kb": 5952.99,
+        "size_kb": 5331.24,
+        "found": true
+      },
+      "Thursday-WorkingHours.pcap_Flow_final.csv": {
+        "size_kb": 231380.81,
         "found": true
       }
-    }
+    },
+    "cicflowmeter_status": "success",
+    "preprocessing_status": "success",
+    "classification_status": "success",
+    "classification_distribution": {
+      "Benign": 408922,
+      "DoS attacks-SlowHTTPTest": 588,
+      "FTP-BruteForce": 263,
+      "DoS attacks-Slowloris": 185,
+      "DoS attacks-Hulk": 32,
+      "SSH-Bruteforce": 28,
+      "DoS attacks-GoldenEye": 16,
+      "DDoS attacks-LOIC-HTTP": 12
+    },
+    "anomaly_status": "success",
+    "anomaly_count": 91036,
+    "normal_count": 319010,
+    "unification_status": "success",
+    "matched_flows": 28669,
+    "unmatched_flows": 381377,
+    "risk_status": "success",
+    "risk_distribution": {
+      "CRITIQUE": 1421,
+      "ELEVE": 15,
+      "MOYEN": 116876,
+      "NORMAL": 291734
+    },
+    "total_rows": 410046
   },
   {
-    "id": 40,
+    "id": 3,
     "filename": "Friday-WorkingHours.pcap",
     "file_path": "C:/Users/marie/Desktop/Dataset2017/Friday-WorkingHours.pcap",
     "file_size_gb": 8.23,
-    "selection_date": "2026-05-11 13:53:58",
-    "analysis_folder": "outputs\\Friday-WorkingHours_20260511_135131",
+    "selection_date": "2026-07-21 14:35:49",
+    "analysis_folder": "C:\\Users\\marie\\Desktop\\projet\\essai\\outputs\\Friday-WorkingHours_20260721_141654",
     "pcap_name": "Friday-WorkingHours",
-    "timestamp": "20260511_135131",
+    "timestamp": "20260721_141654",
+    "home_net_used": "192.168.10.0/24,205.174.165.66/32,205.174.165.68/32,205.174.165.80/32,172.16.0.1/32",
     "output_files": {
       "eve.json": {
-        "size_kb": 891624.49,
+        "size_kb": 983077.95,
         "found": true
       },
       "suricata.log": {
-        "size_kb": 3.4,
+        "size_kb": 2.42,
         "found": true
       },
       "stats.log": {
-        "size_kb": 202.71,
+        "size_kb": 349.29,
         "found": true
       },
       "fast.log": {
-        "size_kb": 337.32,
+        "size_kb": 3356.26,
+        "found": true
+      },
+      "Friday-WorkingHours.pcap_Flow_final.csv": {
+        "size_kb": 396456.82,
         "found": true
       }
-    }
+    },
+    "cicflowmeter_status": "success",
+    "preprocessing_status": "success",
+    "classification_status": "success",
+    "classification_distribution": {
+      "Benign": 687875,
+      "DoS attacks-SlowHTTPTest": 6150,
+      "FTP-BruteForce": 678,
+      "DoS attacks-Hulk": 51,
+      "DDoS attacks-LOIC-HTTP": 42,
+      "DoS attacks-Slowloris": 9,
+      "SSH-Bruteforce": 5,
+      "DoS attacks-GoldenEye": 5,
+      "DDOS attack-HOIC": 2
+    },
+    "anomaly_status": "success",
+    "anomaly_count": 204399,
+    "normal_count": 490418,
+    "unification_status": "success",
+    "matched_flows": 24280,
+    "unmatched_flows": 670537,
+    "risk_status": "success",
+    "risk_distribution": {
+      "CRITIQUE": 2747,
+      "ELEVE": 22,
+      "MOYEN": 223191,
+      "NORMAL": 468857
+    },
+    "total_rows": 694817
   },
   {
-    "id": 41,
+    "id": 4,
     "filename": "Thursday-WorkingHours.pcap",
     "file_path": "C:/Users/marie/Desktop/Dataset2017/Thursday-WorkingHours.pcap",
     "file_size_gb": 7.73,
-    "selection_date": "2026-05-13 10:40:03",
-    "analysis_folder": "outputs\\Thursday-WorkingHours_20260513_103828",
+    "selection_date": "2026-07-21 14:55:14",
+    "analysis_folder": "C:\\Users\\marie\\Desktop\\projet\\essai\\outputs\\Thursday-WorkingHours_20260721_144445",
     "pcap_name": "Thursday-WorkingHours",
-    "timestamp": "20260513_103828",
+    "timestamp": "20260721_144445",
+    "home_net_used": "192.168.10.0/24,205.174.165.66/32,205.174.165.68/32,205.174.165.80/32,172.16.0.1/32",
     "output_files": {
       "eve.json": {
-        "size_kb": 753964.31,
+        "size_kb": 773347.28,
         "found": true
       },
       "suricata.log": {
-        "size_kb": 3.35,
+        "size_kb": 2.39,
         "found": true
       },
       "stats.log": {
-        "size_kb": 133.67,
+        "size_kb": 286.91,
         "found": true
       },
       "fast.log": {
-        "size_kb": 5959.26,
+        "size_kb": 5248.87,
+        "found": true
+      },
+      "Thursday-WorkingHours.pcap_Flow_final.csv": {
+        "size_kb": 237645.94,
         "found": true
       }
-    }
-  },
-  {
-    "id": 42,
-    "filename": "Thursday-WorkingHours.pcap",
-    "file_path": "C:/Users/marie/Desktop/Dataset2017/Thursday-WorkingHours.pcap",
-    "file_size_gb": 7.73,
-    "selection_date": "2026-05-13 12:58:44",
-    "analysis_folder": "outputs\\Thursday-WorkingHours_20260513_125723",
-    "pcap_name": "Thursday-WorkingHours",
-    "timestamp": "20260513_125723",
-    "output_files": {
-      "eve.json": {
-        "size_kb": 754060.33,
-        "found": true
-      },
-      "suricata.log": {
-        "size_kb": 3.37,
-        "found": true
-      },
-      "stats.log": {
-        "size_kb": 109.16,
-        "found": true
-      },
-      "fast.log": {
-        "size_kb": 5948.42,
-        "found": true
-      }
-    }
-  },
-  {
-    "id": 43,
-    "filename": "Wednesday-workingHours.pcap",
-    "file_path": "C:/Users/marie/Desktop/Dataset2017/Wednesday-workingHours.pcap",
-    "file_size_gb": 12.5,
-    "selection_date": "2026-05-13 16:47:15",
-    "analysis_folder": "outputs\\Wednesday-workingHours_20260513_164437",
-    "pcap_name": "Wednesday-workingHours",
-    "timestamp": "20260513_164437",
-    "output_files": {
-      "eve.json": {
-        "size_kb": 1044998.64,
-        "found": true
-      },
-      "suricata.log": {
-        "size_kb": 3.4,
-        "found": true
-      },
-      "stats.log": {
-        "size_kb": 209.1,
-        "found": true
-      },
-      "fast.log": {
-        "size_kb": 268.9,
-        "found": true
-      }
-    }
-  },
-  {
-    "id": 44,
-    "filename": "right.pcap",
-    "file_path": "C:/Users/marie/Downloads/right.pcap",
-    "file_size_gb": 0.0,
-    "selection_date": "2026-05-14 09:11:07",
-    "analysis_folder": "outputs\\right_20260514_091056",
-    "pcap_name": "right",
-    "timestamp": "20260514_091056",
-    "output_files": {
-      "eve.json": {
-        "size_kb": 8821.76,
-        "found": true
-      },
-      "suricata.log": {
-        "size_kb": 3.32,
-        "found": true
-      },
-      "stats.log": {
-        "size_kb": 6.14,
-        "found": true
-      },
-      "fast.log": {
-        "size_kb": 0.0,
-        "found": true
-      }
-    }
-  },
-  {
-    "id": 45,
-    "filename": "Friday-WorkingHours.pcap",
-    "file_path": "C:/Users/marie/Desktop/Dataset2017/Friday-WorkingHours.pcap",
-    "file_size_gb": 8.23,
-    "selection_date": "2026-05-14 09:14:27",
-    "analysis_folder": "outputs\\Friday-WorkingHours_20260514_091243",
-    "pcap_name": "Friday-WorkingHours",
-    "timestamp": "20260514_091243",
-    "output_files": {
-      "eve.json": {
-        "size_kb": 891211.56,
-        "found": true
-      },
-      "suricata.log": {
-        "size_kb": 3.37,
-        "found": true
-      },
-      "stats.log": {
-        "size_kb": 157.55,
-        "found": true
-      },
-      "fast.log": {
-        "size_kb": 337.17,
-        "found": true
-      }
-    }
-  },
-  {
-    "id": 46,
-    "filename": "right.pcap",
-    "file_path": "C:/Users/marie/Downloads/right.pcap",
-    "file_size_gb": 0.0,
-    "selection_date": "2026-05-14 10:36:43",
-    "analysis_folder": "outputs\\right_20260514_103626",
-    "pcap_name": "right",
-    "timestamp": "20260514_103626",
-    "output_files": {
-      "eve.json": {
-        "size_kb": 8821.79,
-        "found": true
-      },
-      "suricata.log": {
-        "size_kb": 3.29,
-        "found": true
-      },
-      "stats.log": {
-        "size_kb": 6.14,
-        "found": true
-      },
-      "fast.log": {
-        "size_kb": 0.0,
-        "found": true
-      }
-    }
-  },
-  {
-    "id": 47,
-    "filename": "right.pcap",
-    "file_path": "C:/Users/marie/Downloads/right.pcap",
-    "file_size_gb": 0.0,
-    "selection_date": "2026-05-14 11:12:46",
-    "analysis_folder": "outputs\\right_20260514_111237",
-    "pcap_name": "right",
-    "timestamp": "20260514_111237",
-    "output_files": {
-      "eve.json": {
-        "size_kb": 8821.79,
-        "found": true
-      },
-      "suricata.log": {
-        "size_kb": 3.31,
-        "found": true
-      },
-      "stats.log": {
-        "size_kb": 6.14,
-        "found": true
-      },
-      "fast.log": {
-        "size_kb": 0.0,
-        "found": true
-      }
-    }
-  },
-  {
-    "id": 48,
-    "filename": "left.pcap",
-    "file_path": "C:/Users/marie/Downloads/left.pcap",
-    "file_size_gb": 0.03,
-    "selection_date": "2026-05-14 11:20:32",
-    "analysis_folder": "outputs\\left_20260514_112018",
-    "pcap_name": "left",
-    "timestamp": "20260514_112018",
-    "output_files": {
-      "eve.json": {
-        "size_kb": 55446.03,
-        "found": true
-      },
-      "suricata.log": {
-        "size_kb": 3.29,
-        "found": true
-      },
-      "stats.log": {
-        "size_kb": 6.63,
-        "found": true
-      },
-      "fast.log": {
-        "size_kb": 0.0,
-        "found": true
-      }
-    }
-  },
-  {
-    "id": 49,
-    "filename": "right.pcap",
-    "file_path": "C:/Users/marie/Downloads/right.pcap",
-    "file_size_gb": 0.0,
-    "selection_date": "2026-05-14 11:51:14",
-    "analysis_folder": "outputs\\right_20260514_115059",
-    "pcap_name": "right",
-    "timestamp": "20260514_115059",
-    "output_files": {
-      "eve.json": {
-        "size_kb": 8821.78,
-        "found": true
-      },
-      "suricata.log": {
-        "size_kb": 3.29,
-        "found": true
-      },
-      "stats.log": {
-        "size_kb": 6.6,
-        "found": true
-      },
-      "fast.log": {
-        "size_kb": 0.0,
-        "found": true
-      }
-    }
-  },
-  {
-    "id": 50,
-    "filename": "bottom.pcap",
-    "file_path": "C:/Users/marie/Downloads/bottom.pcap",
-    "file_size_gb": 0.4,
-    "selection_date": "2026-05-14 12:23:01",
-    "analysis_folder": "outputs\\bottom_20260514_122238",
-    "pcap_name": "bottom",
-    "timestamp": "20260514_122238",
-    "output_files": {
-      "eve.json": {
-        "size_kb": 12456.4,
-        "found": true
-      },
-      "suricata.log": {
-        "size_kb": 3.32,
-        "found": true
-      },
-      "stats.log": {
-        "size_kb": 7.01,
-        "found": true
-      },
-      "fast.log": {
-        "size_kb": 0.0,
-        "found": true
-      }
-    }
-  },
-  {
-    "id": 51,
-    "filename": "Friday-WorkingHours.pcap",
-    "file_path": "C:/Users/marie/Desktop/Dataset2017/Friday-WorkingHours.pcap",
-    "file_size_gb": 8.23,
-    "selection_date": "2026-06-11 09:26:46",
-    "analysis_folder": "outputs\\Friday-WorkingHours_20260611_092520",
-    "pcap_name": "Friday-WorkingHours",
-    "timestamp": "20260611_092520",
-    "output_files": {
-      "eve.json": {
-        "size_kb": 891462.88,
-        "found": true
-      },
-      "suricata.log": {
-        "size_kb": 3.4,
-        "found": true
-      },
-      "stats.log": {
-        "size_kb": 119.91,
-        "found": true
-      },
-      "fast.log": {
-        "size_kb": 338.16,
-        "found": true
-      }
-    }
-  },
-  {
-    "id": 52,
-    "filename": "right.pcap",
-    "file_path": "C:/Users/marie/Downloads/right.pcap",
-    "file_size_gb": 0.0,
-    "selection_date": "2026-06-11 09:47:52",
-    "analysis_folder": "outputs\\right_20260611_094742",
-    "pcap_name": "right",
-    "timestamp": "20260611_094742",
-    "output_files": {
-      "eve.json": {
-        "size_kb": 8821.74,
-        "found": true
-      },
-      "suricata.log": {
-        "size_kb": 3.31,
-        "found": true
-      },
-      "stats.log": {
-        "size_kb": 6.14,
-        "found": true
-      },
-      "fast.log": {
-        "size_kb": 0.0,
-        "found": true
-      }
-    }
-  },
-  {
-    "id": 53,
-    "filename": "right.pcap",
-    "file_path": "C:/Users/marie/Downloads/right.pcap",
-    "file_size_gb": 0.0,
-    "selection_date": "2026-06-11 11:29:09",
-    "analysis_folder": "outputs\\right_20260611_112859",
-    "pcap_name": "right",
-    "timestamp": "20260611_112859",
-    "output_files": {
-      "eve.json": {
-        "size_kb": 8821.76,
-        "found": true
-      },
-      "suricata.log": {
-        "size_kb": 3.32,
-        "found": true
-      },
-      "stats.log": {
-        "size_kb": 6.23,
-        "found": true
-      },
-      "fast.log": {
-        "size_kb": 0.0,
-        "found": true
-      }
-    }
-  },
-  {
-    "id": 54,
-    "filename": "benign.pcap",
-    "file_path": "C:/Users/marie/Desktop/CICBellDNS2021/Raw/PCAPs/benign.pcap",
-    "file_size_gb": 0.85,
-    "selection_date": "2026-06-11 11:37:46",
-    "analysis_folder": "outputs\\benign_20260611_113354",
-    "pcap_name": "benign",
-    "timestamp": "20260611_113354",
-    "output_files": {
-      "eve.json": {
-        "size_kb": 3547028.34,
-        "found": true
-      },
-      "suricata.log": {
-        "size_kb": 3.35,
-        "found": true
-      },
-      "stats.log": {
-        "size_kb": 114.53,
-        "found": true
-      },
-      "fast.log": {
-        "size_kb": 0.0,
-        "found": true
-      }
-    }
-  },
-  {
-    "id": 55,
-    "filename": "malware.pcap",
-    "file_path": "C:/Users/marie/Desktop/CICBellDNS2021/Raw/PCAPs/malware.pcap",
-    "file_size_gb": 0.02,
-    "selection_date": "2026-06-11 11:53:15",
-    "analysis_folder": "outputs\\malware_20260611_115304",
-    "pcap_name": "malware",
-    "timestamp": "20260611_115304",
-    "output_files": {
-      "eve.json": {
-        "size_kb": 92599.23,
-        "found": true
-      },
-      "suricata.log": {
-        "size_kb": 3.36,
-        "found": true
-      },
-      "stats.log": {
-        "size_kb": 3.4,
-        "found": true
-      },
-      "fast.log": {
-        "size_kb": 0.0,
-        "found": true
-      }
-    }
-  },
-  {
-    "id": 56,
-    "filename": "phishing.pcap",
-    "file_path": "C:/Users/marie/Desktop/CICBellDNS2021/Raw/PCAPs/phishing.pcap",
-    "file_size_gb": 0.01,
-    "selection_date": "2026-06-11 11:58:13",
-    "analysis_folder": "outputs\\phishing_20260611_115803",
-    "pcap_name": "phishing",
-    "timestamp": "20260611_115803",
-    "output_files": {
-      "eve.json": {
-        "size_kb": 50794.35,
-        "found": true
-      },
-      "suricata.log": {
-        "size_kb": 3.36,
-        "found": true
-      },
-      "stats.log": {
-        "size_kb": 3.39,
-        "found": true
-      },
-      "fast.log": {
-        "size_kb": 0.0,
-        "found": true
-      }
-    }
-  },
-  {
-    "id": 57,
-    "filename": "spam.pcap",
-    "file_path": "C:/Users/marie/Desktop/CICBellDNS2021/Raw/PCAPs/spam.pcap",
-    "file_size_gb": 0.01,
-    "selection_date": "2026-06-11 11:59:18",
-    "analysis_folder": "outputs\\spam_20260611_115911",
-    "pcap_name": "spam",
-    "timestamp": "20260611_115911",
-    "output_files": {
-      "eve.json": {
-        "size_kb": 30952.71,
-        "found": true
-      },
-      "suricata.log": {
-        "size_kb": 3.36,
-        "found": true
-      },
-      "stats.log": {
-        "size_kb": 3.39,
-        "found": true
-      },
-      "fast.log": {
-        "size_kb": 0.0,
-        "found": true
-      }
-    }
-  },
-  {
-    "id": 58,
-    "filename": "Monday-WorkingHours.pcap",
-    "file_path": "C:/Users/marie/Desktop/Dataset2017/Monday-WorkingHours.pcap",
-    "file_size_gb": 10.08,
-    "selection_date": "2026-06-11 12:06:51",
-    "analysis_folder": "outputs\\Monday-WorkingHours_20260611_120341",
-    "pcap_name": "Monday-WorkingHours",
-    "timestamp": "20260611_120341",
-    "output_files": {
-      "eve.json": {
-        "size_kb": 834599.34,
-        "found": true
-      },
-      "suricata.log": {
-        "size_kb": 3.38,
-        "found": true
-      },
-      "stats.log": {
-        "size_kb": 285.88,
-        "found": true
-      },
-      "fast.log": {
-        "size_kb": 1549.2,
-        "found": true
-      }
-    }
-  },
-  {
-    "id": 59,
-    "filename": "ens33-dns_amplification_attack.pcap",
-    "file_path": "C:/Users/marie/Desktop/SecondDay/ens33-dns_amplification_attack.pcap",
-    "file_size_gb": 1.24,
-    "selection_date": "2026-06-11 14:31:29",
-    "analysis_folder": "outputs\\ens33-dns_amplification_attack_20260611_143004",
-    "pcap_name": "ens33-dns_amplification_attack",
-    "timestamp": "20260611_143004",
-    "output_files": {
-      "eve.json": {
-        "size_kb": 366027.9,
-        "found": true
-      },
-      "suricata.log": {
-        "size_kb": 3.39,
-        "found": true
-      },
-      "stats.log": {
-        "size_kb": 50.15,
-        "found": true
-      },
-      "fast.log": {
-        "size_kb": 0.0,
-        "found": true
-      }
-    }
-  },
-  {
-    "id": 60,
-    "filename": "ens33-dns_amplification_attack.pcap",
-    "file_path": "C:/Users/marie/Desktop/ThirdDay/ens33-dns_amplification_attack.pcap",
-    "file_size_gb": 0.52,
-    "selection_date": "2026-06-11 14:48:11",
-    "analysis_folder": "outputs\\ens33-dns_amplification_attack_20260611_144720",
-    "pcap_name": "ens33-dns_amplification_attack",
-    "timestamp": "20260611_144720",
-    "output_files": {
-      "eve.json": {
-        "size_kb": 225293.7,
-        "found": true
-      },
-      "suricata.log": {
-        "size_kb": 3.38,
-        "found": true
-      },
-      "stats.log": {
-        "size_kb": 27.02,
-        "found": true
-      },
-      "fast.log": {
-        "size_kb": 0.0,
-        "found": true
-      }
-    }
-  },
-  {
-    "id": 61,
-    "filename": "Wednesday-workingHours.pcap",
-    "file_path": "C:/Users/marie/Desktop/Dataset2017/Wednesday-workingHours.pcap",
-    "file_size_gb": 12.5,
-    "selection_date": "2026-06-11 15:31:46",
-    "analysis_folder": "outputs\\Wednesday-workingHours_20260611_152825",
-    "pcap_name": "Wednesday-workingHours",
-    "timestamp": "20260611_152825",
-    "output_files": {
-      "eve.json": {
-        "size_kb": 1045591.12,
-        "found": true
-      },
-      "suricata.log": {
-        "size_kb": 3.41,
-        "found": true
-      },
-      "stats.log": {
-        "size_kb": 283.26,
-        "found": true
-      },
-      "fast.log": {
-        "size_kb": 267.84,
-        "found": true
-      }
-    }
-  },
-  {
-    "id": 62,
-    "filename": "Tuesday-WorkingHours.pcap",
-    "file_path": "C:/Users/marie/Desktop/Dataset2017/Tuesday-WorkingHours.pcap",
-    "file_size_gb": 10.29,
-    "selection_date": "2026-06-15 20:23:01",
-    "analysis_folder": "outputs\\Tuesday-WorkingHours_20260615_202130",
-    "pcap_name": "Tuesday-WorkingHours",
-    "timestamp": "20260615_202130",
-    "output_files": {
-      "eve.json": {
-        "size_kb": 719562.77,
-        "found": true
-      },
-      "suricata.log": {
-        "size_kb": 3.4,
-        "found": true
-      },
-      "stats.log": {
-        "size_kb": 133.81,
-        "found": true
-      },
-      "fast.log": {
-        "size_kb": 788.53,
-        "found": true
-      }
-    }
-  },
-  {
-    "id": 63,
-    "filename": "ens33-dns_amplification_attack.pcap",
-    "file_path": "C:/Users/marie/Desktop/SecondDay/ens33-dns_amplification_attack.pcap",
-    "file_size_gb": 1.24,
-    "selection_date": "2026-06-15 20:35:14",
-    "analysis_folder": "outputs\\ens33-dns_amplification_attack_20260615_203419",
-    "pcap_name": "ens33-dns_amplification_attack",
-    "timestamp": "20260615_203419",
-    "output_files": {
-      "eve.json": {
-        "size_kb": 366000.8,
-        "found": true
-      },
-      "suricata.log": {
-        "size_kb": 3.38,
-        "found": true
-      },
-      "stats.log": {
-        "size_kb": 35.25,
-        "found": true
-      },
-      "fast.log": {
-        "size_kb": 0.0,
-        "found": true
-      }
-    }
-  },
-  {
-    "id": 64,
-    "filename": "ens33-dns_amplification_benign.pcap",
-    "file_path": "C:/Users/marie/Desktop/SecondDay/ens33-dns_amplification_benign.pcap",
-    "file_size_gb": 0.0,
-    "selection_date": "2026-06-15 20:46:12",
-    "analysis_folder": "outputs\\ens33-dns_amplification_benign_20260615_204606",
-    "pcap_name": "ens33-dns_amplification_benign",
-    "timestamp": "20260615_204606",
-    "output_files": {
-      "eve.json": {
-        "size_kb": 12048.1,
-        "found": true
-      },
-      "suricata.log": {
-        "size_kb": 3.38,
-        "found": true
-      },
-      "stats.log": {
-        "size_kb": 3.5,
-        "found": true
-      },
-      "fast.log": {
-        "size_kb": 0.0,
-        "found": true
-      }
-    }
-  },
-  {
-    "id": 65,
-    "filename": "ens33-dns_amplification_attack.pcap",
-    "file_path": "C:/Users/marie/Desktop/ThirdDay/ens33-dns_amplification_attack.pcap",
-    "file_size_gb": 0.52,
-    "selection_date": "2026-06-15 20:56:08",
-    "analysis_folder": "outputs\\ens33-dns_amplification_attack_20260615_205550",
-    "pcap_name": "ens33-dns_amplification_attack",
-    "timestamp": "20260615_205550",
-    "output_files": {
-      "eve.json": {
-        "size_kb": 225258.97,
-        "found": true
-      },
-      "suricata.log": {
-        "size_kb": 3.38,
-        "found": true
-      },
-      "stats.log": {
-        "size_kb": 9.13,
-        "found": true
-      },
-      "fast.log": {
-        "size_kb": 0.0,
-        "found": true
-      }
-    }
-  },
-  {
-    "id": 66,
-    "filename": "ens33-dns_amplification_benign.pcap",
-    "file_path": "C:/Users/marie/Desktop/ThirdDay/ens33-dns_amplification_benign.pcap",
-    "file_size_gb": 0.0,
-    "selection_date": "2026-06-15 21:03:46",
-    "analysis_folder": "outputs\\ens33-dns_amplification_benign_20260615_210339",
-    "pcap_name": "ens33-dns_amplification_benign",
-    "timestamp": "20260615_210339",
-    "output_files": {
-      "eve.json": {
-        "size_kb": 20508.65,
-        "found": true
-      },
-      "suricata.log": {
-        "size_kb": 3.37,
-        "found": true
-      },
-      "stats.log": {
-        "size_kb": 3.78,
-        "found": true
-      },
-      "fast.log": {
-        "size_kb": 0.0,
-        "found": true
-      }
-    }
-  },
-  {
-    "id": 67,
-    "filename": "malware.pcap",
-    "file_path": "C:/Users/marie/Desktop/CICBellDNS2021/Raw/PCAPs/malware.pcap",
-    "file_size_gb": 0.02,
-    "selection_date": "2026-06-17 09:44:01",
-    "analysis_folder": "outputs\\malware_20260617_094333",
-    "pcap_name": "malware",
-    "timestamp": "20260617_094333",
-    "output_files": {
-      "eve.json": {
-        "size_kb": 92607.66,
-        "found": true
-      },
-      "suricata.log": {
-        "size_kb": 3.36,
-        "found": true
-      },
-      "stats.log": {
-        "size_kb": 7.26,
-        "found": true
-      },
-      "fast.log": {
-        "size_kb": 0.0,
-        "found": true
-      }
-    }
-  },
-  {
-    "id": 68,
-    "filename": "phishing.pcap",
-    "file_path": "C:/Users/marie/Desktop/CICBellDNS2021/Raw/PCAPs/phishing.pcap",
-    "file_size_gb": 0.01,
-    "selection_date": "2026-06-17 09:49:25",
-    "analysis_folder": "outputs\\phishing_20260617_094904",
-    "pcap_name": "phishing",
-    "timestamp": "20260617_094904",
-    "output_files": {
-      "eve.json": {
-        "size_kb": 50794.35,
-        "found": true
-      },
-      "suricata.log": {
-        "size_kb": 3.32,
-        "found": true
-      },
-      "stats.log": {
-        "size_kb": 3.39,
-        "found": true
-      },
-      "fast.log": {
-        "size_kb": 0.0,
-        "found": true
-      }
-    }
-  },
-  {
-    "id": 69,
-    "filename": "spam.pcap",
-    "file_path": "C:/Users/marie/Desktop/CICBellDNS2021/Raw/PCAPs/spam.pcap",
-    "file_size_gb": 0.01,
-    "selection_date": "2026-06-17 09:50:29",
-    "analysis_folder": "outputs\\spam_20260617_095011",
-    "pcap_name": "spam",
-    "timestamp": "20260617_095011",
-    "output_files": {
-      "eve.json": {
-        "size_kb": 30952.71,
-        "found": true
-      },
-      "suricata.log": {
-        "size_kb": 3.36,
-        "found": true
-      },
-      "stats.log": {
-        "size_kb": 3.39,
-        "found": true
-      },
-      "fast.log": {
-        "size_kb": 0.0,
-        "found": true
-      }
-    }
-  },
-  {
-    "id": 70,
-    "filename": "benign.pcap",
-    "file_path": "C:/Users/marie/Desktop/CICBellDNS2021/Raw/PCAPs/benign.pcap",
-    "file_size_gb": 0.85,
-    "selection_date": "2026-06-17 09:58:44",
-    "analysis_folder": "outputs\\benign_20260617_095228",
-    "pcap_name": "benign",
-    "timestamp": "20260617_095228",
-    "output_files": {
-      "eve.json": {
-        "size_kb": 3547171.93,
-        "found": true
-      },
-      "suricata.log": {
-        "size_kb": 3.35,
-        "found": true
-      },
-      "stats.log": {
-        "size_kb": 184.63,
-        "found": true
-      },
-      "fast.log": {
-        "size_kb": 0.0,
-        "found": true
-      }
-    }
-  },
-  {
-    "id": 71,
-    "filename": "Wednesday-workingHours.pcap",
-    "file_path": "C:/Users/marie/Desktop/Dataset2017/Wednesday-workingHours.pcap",
-    "file_size_gb": 12.5,
-    "selection_date": "2026-06-17 10:13:41",
-    "analysis_folder": "outputs\\Wednesday-workingHours_20260617_100843",
-    "pcap_name": "Wednesday-workingHours",
-    "timestamp": "20260617_100843",
-    "output_files": {
-      "eve.json": {
-        "size_kb": 1044926.98,
-        "found": true
-      },
-      "suricata.log": {
-        "size_kb": 3.38,
-        "found": true
-      },
-      "stats.log": {
-        "size_kb": 426.48,
-        "found": true
-      },
-      "fast.log": {
-        "size_kb": 268.4,
-        "found": true
-      }
-    }
-  },
-  {
-    "id": 72,
-    "filename": "spam.pcap",
-    "file_path": "C:/Users/marie/Desktop/CICBellDNS2021/Raw/PCAPs/spam.pcap",
-    "file_size_gb": 0.01,
-    "selection_date": "2026-06-17 11:29:05",
-    "analysis_folder": "outputs\\spam_20260617_112853",
-    "pcap_name": "spam",
-    "timestamp": "20260617_112853",
-    "output_files": {
-      "eve.json": {
-        "size_kb": 30952.71,
-        "found": true
-      },
-      "suricata.log": {
-        "size_kb": 3.36,
-        "found": true
-      },
-      "stats.log": {
-        "size_kb": 3.39,
-        "found": true
-      },
-      "fast.log": {
-        "size_kb": 0.0,
-        "found": true
-      }
-    }
-  },
-  {
-    "id": 73,
-    "filename": "phishing.pcap",
-    "file_path": "C:/Users/marie/Desktop/CICBellDNS2021/Raw/PCAPs/phishing.pcap",
-    "file_size_gb": 0.01,
-    "selection_date": "2026-06-17 11:32:13",
-    "analysis_folder": "outputs\\phishing_20260617_113204",
-    "pcap_name": "phishing",
-    "timestamp": "20260617_113204",
-    "output_files": {
-      "eve.json": {
-        "size_kb": 50794.35,
-        "found": true
-      },
-      "suricata.log": {
-        "size_kb": 3.37,
-        "found": true
-      },
-      "stats.log": {
-        "size_kb": 3.39,
-        "found": true
-      },
-      "fast.log": {
-        "size_kb": 0.0,
-        "found": true
-      }
-    }
-  },
-  {
-    "id": 74,
-    "filename": "Wednesday-workingHours.pcap",
-    "file_path": "C:/Users/marie/Desktop/Dataset2017/Wednesday-workingHours.pcap",
-    "file_size_gb": 12.5,
-    "selection_date": "2026-06-17 11:52:22",
-    "analysis_folder": "outputs\\Wednesday-workingHours_20260617_114912",
-    "pcap_name": "Wednesday-workingHours",
-    "timestamp": "20260617_114912",
-    "output_files": {
-      "eve.json": {
-        "size_kb": 1045130.81,
-        "found": true
-      },
-      "suricata.log": {
-        "size_kb": 3.41,
-        "found": true
-      },
-      "stats.log": {
-        "size_kb": 270.78,
-        "found": true
-      },
-      "fast.log": {
-        "size_kb": 268.65,
-        "found": true
-      }
-    }
-  },
-  {
-    "id": 75,
-    "filename": "ens33-dns_amplification_benign.pcap",
-    "file_path": "C:/Users/marie/Desktop/SecondDay/ens33-dns_amplification_benign.pcap",
-    "file_size_gb": 0.0,
-    "selection_date": "2026-06-18 14:37:49",
-    "analysis_folder": "outputs\\ens33-dns_amplification_benign_20260618_143735",
-    "pcap_name": "ens33-dns_amplification_benign",
-    "timestamp": "20260618_143735",
-    "output_files": {
-      "eve.json": {
-        "size_kb": 12048.1,
-        "found": true
-      },
-      "suricata.log": {
-        "size_kb": 3.38,
-        "found": true
-      },
-      "stats.log": {
-        "size_kb": 3.78,
-        "found": true
-      },
-      "fast.log": {
-        "size_kb": 0.0,
-        "found": true
-      }
-    }
-  },
-  {
-    "id": 76,
-    "filename": "ens33-dns_amplification_benign.pcap",
-    "file_path": "C:/Users/marie/Desktop/SecondDay/ens33-dns_amplification_benign.pcap",
-    "file_size_gb": 0.0,
-    "selection_date": "2026-06-18 14:52:32",
-    "analysis_folder": "outputs\\ens33-dns_amplification_benign_20260618_145216",
-    "pcap_name": "ens33-dns_amplification_benign",
-    "timestamp": "20260618_145216",
-    "output_files": {
-      "eve.json": {
-        "size_kb": 12048.11,
-        "found": true
-      },
-      "suricata.log": {
-        "size_kb": 3.38,
-        "found": true
-      },
-      "stats.log": {
-        "size_kb": 3.78,
-        "found": true
-      },
-      "fast.log": {
-        "size_kb": 0.0,
-        "found": true
-      }
-    }
-  },
-  {
-    "id": 77,
-    "filename": "ens33-dns_amplification_benign.pcap",
-    "file_path": "C:/Users/marie/Desktop/SecondDay/ens33-dns_amplification_benign.pcap",
-    "file_size_gb": 0.0,
-    "selection_date": "2026-06-18 15:28:26",
-    "analysis_folder": "outputs\\ens33-dns_amplification_benign_20260618_152817",
-    "pcap_name": "ens33-dns_amplification_benign",
-    "timestamp": "20260618_152817",
-    "output_files": {
-      "eve.json": {
-        "size_kb": 12048.1,
-        "found": true
-      },
-      "suricata.log": {
-        "size_kb": 3.38,
-        "found": true
-      },
-      "stats.log": {
-        "size_kb": 3.96,
-        "found": true
-      },
-      "fast.log": {
-        "size_kb": 0.0,
-        "found": true
-      }
-    }
-  },
-  {
-    "id": 78,
-    "filename": "ens33-dns_amplification_attack.pcap",
-    "file_path": "C:/Users/marie/Desktop/SecondDay/ens33-dns_amplification_attack.pcap",
-    "file_size_gb": 1.24,
-    "selection_date": "2026-06-18 15:35:09",
-    "analysis_folder": "outputs\\ens33-dns_amplification_attack_20260618_153322",
-    "pcap_name": "ens33-dns_amplification_attack",
-    "timestamp": "20260618_153322",
-    "output_files": {
-      "eve.json": {
-        "size_kb": 366053.19,
-        "found": true
-      },
-      "suricata.log": {
-        "size_kb": 3.39,
-        "found": true
-      },
-      "stats.log": {
-        "size_kb": 64.67,
-        "found": true
-      },
-      "fast.log": {
-        "size_kb": 0.0,
-        "found": true
-      }
-    }
-  },
-  {
-    "id": 79,
-    "filename": "ens33-dns_amplification_benign.pcap",
-    "file_path": "C:/Users/marie/Desktop/SecondDay/ens33-dns_amplification_benign.pcap",
-    "file_size_gb": 0.0,
-    "selection_date": "2026-06-18 16:12:55",
-    "analysis_folder": "outputs\\ens33-dns_amplification_benign_20260618_161237",
-    "pcap_name": "ens33-dns_amplification_benign",
-    "timestamp": "20260618_161237",
-    "output_files": {
-      "eve.json": {
-        "size_kb": 12048.1,
-        "found": true
-      },
-      "suricata.log": {
-        "size_kb": 3.38,
-        "found": true
-      },
-      "stats.log": {
-        "size_kb": 3.5,
-        "found": true
-      },
-      "fast.log": {
-        "size_kb": 0.0,
-        "found": true
-      }
-    }
-  },
-  {
-    "id": 80,
-    "filename": "ens33-dns_amplification_benign.pcap",
-    "file_path": "C:/Users/marie/Desktop/SecondDay/ens33-dns_amplification_benign.pcap",
-    "file_size_gb": 0.0,
-    "selection_date": "2026-06-18 16:18:15",
-    "analysis_folder": "outputs\\ens33-dns_amplification_benign_20260618_161759",
-    "pcap_name": "ens33-dns_amplification_benign",
-    "timestamp": "20260618_161759",
-    "output_files": {
-      "eve.json": {
-        "size_kb": 12048.11,
-        "found": true
-      },
-      "suricata.log": {
-        "size_kb": 3.36,
-        "found": true
-      },
-      "stats.log": {
-        "size_kb": 3.78,
-        "found": true
-      },
-      "fast.log": {
-        "size_kb": 0.0,
-        "found": true
-      }
-    }
-  },
-  {
-    "id": 81,
-    "filename": "ens33-dns_amplification_attack.pcap",
-    "file_path": "C:/Users/marie/Desktop/ThirdDay/ens33-dns_amplification_attack.pcap",
-    "file_size_gb": 0.52,
-    "selection_date": "2026-06-18 16:19:16",
-    "analysis_folder": "outputs\\ens33-dns_amplification_attack_20260618_161854",
-    "pcap_name": "ens33-dns_amplification_attack",
-    "timestamp": "20260618_161854",
-    "output_files": {
-      "eve.json": {
-        "size_kb": 225261.08,
-        "found": true
-      },
-      "suricata.log": {
-        "size_kb": 3.36,
-        "found": true
-      },
-      "stats.log": {
-        "size_kb": 8.95,
-        "found": true
-      },
-      "fast.log": {
-        "size_kb": 0.0,
-        "found": true
-      }
-    }
-  },
-  {
-    "id": 82,
-    "filename": "Friday-WorkingHours.pcap",
-    "file_path": "C:/Users/marie/Desktop/Dataset2017/Friday-WorkingHours.pcap",
-    "file_size_gb": 8.23,
-    "selection_date": "2026-06-18 16:28:32",
-    "analysis_folder": "outputs\\Friday-WorkingHours_20260618_162626",
-    "pcap_name": "Friday-WorkingHours",
-    "timestamp": "20260618_162626",
-    "output_files": {
-      "eve.json": {
-        "size_kb": 891408.97,
-        "found": true
-      },
-      "suricata.log": {
-        "size_kb": 3.4,
-        "found": true
-      },
-      "stats.log": {
-        "size_kb": 180.6,
-        "found": true
-      },
-      "fast.log": {
-        "size_kb": 337.71,
-        "found": true
-      }
-    }
-  },
-  {
-    "id": 83,
-    "filename": "ens33-dns_amplification_benign.pcap",
-    "file_path": "C:/Users/marie/Desktop/ThirdDay/ens33-dns_amplification_benign.pcap",
-    "file_size_gb": 0.0,
-    "selection_date": "2026-06-18 16:41:11",
-    "analysis_folder": "outputs\\ens33-dns_amplification_benign_20260618_164102",
-    "pcap_name": "ens33-dns_amplification_benign",
-    "timestamp": "20260618_164102",
-    "output_files": {
-      "eve.json": {
-        "size_kb": 20508.66,
-        "found": true
-      },
-      "suricata.log": {
-        "size_kb": 3.36,
-        "found": true
-      },
-      "stats.log": {
-        "size_kb": 3.78,
-        "found": true
-      },
-      "fast.log": {
-        "size_kb": 0.0,
-        "found": true
-      }
-    }
-  },
-  {
-    "id": 84,
-    "filename": "Thursday-WorkingHours.pcap",
-    "file_path": "C:/Users/marie/Desktop/Dataset2017/Thursday-WorkingHours.pcap",
-    "file_size_gb": 7.73,
-    "selection_date": "2026-06-18 16:47:55",
-    "analysis_folder": "outputs\\Thursday-WorkingHours_20260618_164551",
-    "pcap_name": "Thursday-WorkingHours",
-    "timestamp": "20260618_164551",
-    "output_files": {
-      "eve.json": {
-        "size_kb": 754346.68,
-        "found": true
-      },
-      "suricata.log": {
-        "size_kb": 3.38,
-        "found": true
-      },
-      "stats.log": {
-        "size_kb": 182.17,
-        "found": true
-      },
-      "fast.log": {
-        "size_kb": 5959.25,
-        "found": true
-      }
-    }
-  },
-  {
-    "id": 85,
-    "filename": "ens33-dns_amplification_attack.pcap",
-    "file_path": "C:/Users/marie/Desktop/ThirdDay/ens33-dns_amplification_attack.pcap",
-    "file_size_gb": 0.52,
-    "selection_date": "2026-06-18 17:34:58",
-    "analysis_folder": "outputs\\ens33-dns_amplification_attack_20260618_173446",
-    "pcap_name": "ens33-dns_amplification_attack",
-    "timestamp": "20260618_173446",
-    "output_files": {
-      "eve.json": {
-        "size_kb": 225265.85,
-        "found": true
-      },
-      "suricata.log": {
-        "size_kb": 3.36,
-        "found": true
-      },
-      "stats.log": {
-        "size_kb": 4.37,
-        "found": true
-      },
-      "fast.log": {
-        "size_kb": 0.0,
-        "found": true
-      }
-    }
-  },
-  {
-    "id": 86,
-    "filename": "ens33-dns_amplification_attack.pcap",
-    "file_path": "C:/Users/marie/Desktop/ThirdDay/ens33-dns_amplification_attack.pcap",
-    "file_size_gb": 0.52,
-    "selection_date": "2026-06-18 17:49:48",
-    "analysis_folder": "outputs\\ens33-dns_amplification_attack_20260618_174855",
-    "pcap_name": "ens33-dns_amplification_attack",
-    "timestamp": "20260618_174855",
-    "output_files": {
-      "eve.json": {
-        "size_kb": 225285.99,
-        "found": true
-      },
-      "suricata.log": {
-        "size_kb": 3.38,
-        "found": true
-      },
-      "stats.log": {
-        "size_kb": 22.47,
-        "found": true
-      },
-      "fast.log": {
-        "size_kb": 0.0,
-        "found": true
-      }
-    }
-  },
-  {
-    "id": 87,
-    "filename": "ens33-dns_amplification_benign.pcap",
-    "file_path": "C:/Users/marie/Desktop/ThirdDay/ens33-dns_amplification_benign.pcap",
-    "file_size_gb": 0.0,
-    "selection_date": "2026-06-22 10:03:39",
-    "analysis_folder": "outputs\\ens33-dns_amplification_benign_20260622_100329",
-    "pcap_name": "ens33-dns_amplification_benign",
-    "timestamp": "20260622_100329",
-    "output_files": {
-      "eve.json": {
-        "size_kb": 20508.66,
-        "found": true
-      },
-      "suricata.log": {
-        "size_kb": 3.38,
-        "found": true
-      },
-      "stats.log": {
-        "size_kb": 3.78,
-        "found": true
-      },
-      "fast.log": {
-        "size_kb": 0.0,
-        "found": true
-      }
-    }
-  },
-  {
-    "id": 88,
-    "filename": "ens33-dns_amplification_benign.pcap",
-    "file_path": "C:/Users/marie/Desktop/ThirdDay/ens33-dns_amplification_benign.pcap",
-    "file_size_gb": 0.0,
-    "selection_date": "2026-06-22 11:03:57",
-    "analysis_folder": "outputs\\ens33-dns_amplification_benign_20260622_110348",
-    "pcap_name": "ens33-dns_amplification_benign",
-    "timestamp": "20260622_110348",
-    "output_files": {
-      "eve.json": {
-        "size_kb": 20508.64,
-        "found": true
-      },
-      "suricata.log": {
-        "size_kb": 3.36,
-        "found": true
-      },
-      "stats.log": {
-        "size_kb": 3.5,
-        "found": true
-      },
-      "fast.log": {
-        "size_kb": 0.0,
-        "found": true
-      }
-    }
-  },
-  {
-    "id": 89,
-    "filename": "ens33-dns_amplification_attack.pcap",
-    "file_path": "C:/Users/marie/Desktop/ThirdDay/ens33-dns_amplification_attack.pcap",
-    "file_size_gb": 0.52,
-    "selection_date": "2026-06-22 11:06:09",
-    "analysis_folder": "outputs\\ens33-dns_amplification_attack_20260622_110457",
-    "pcap_name": "ens33-dns_amplification_attack",
-    "timestamp": "20260622_110457",
-    "output_files": {
-      "eve.json": {
-        "size_kb": 225320.6,
-        "found": true
-      },
-      "suricata.log": {
-        "size_kb": 3.38,
-        "found": true
-      },
-      "stats.log": {
-        "size_kb": 40.64,
-        "found": true
-      },
-      "fast.log": {
-        "size_kb": 0.0,
-        "found": true
-      }
-    }
-  },
-  {
-    "id": 90,
-    "filename": "Tuesday-WorkingHours.pcap",
-    "file_path": "C:/Users/marie/Desktop/Dataset2017/Tuesday-WorkingHours.pcap",
-    "file_size_gb": 10.29,
-    "selection_date": "2026-06-22 11:20:52",
-    "analysis_folder": "outputs\\Tuesday-WorkingHours_20260622_111756",
-    "pcap_name": "Tuesday-WorkingHours",
-    "timestamp": "20260622_111756",
-    "output_files": {
-      "eve.json": {
-        "size_kb": 719558.26,
-        "found": true
-      },
-      "suricata.log": {
-        "size_kb": 3.41,
-        "found": true
-      },
-      "stats.log": {
-        "size_kb": 267.15,
-        "found": true
-      },
-      "fast.log": {
-        "size_kb": 788.91,
-        "found": true
-      }
-    }
-  },
-  {
-    "id": 91,
-    "filename": "ens33-dns_amplification_benign.pcap",
-    "file_path": "C:/Users/marie/Desktop/SecondDay/ens33-dns_amplification_benign.pcap",
-    "file_size_gb": 0.0,
-    "selection_date": "2026-06-22 12:01:46",
-    "analysis_folder": "outputs\\ens33-dns_amplification_benign_20260622_120130",
-    "pcap_name": "ens33-dns_amplification_benign",
-    "timestamp": "20260622_120130",
-    "output_files": {
-      "eve.json": {
-        "size_kb": 12048.11,
-        "found": true
-      },
-      "suricata.log": {
-        "size_kb": 3.38,
-        "found": true
-      },
-      "stats.log": {
-        "size_kb": 3.78,
-        "found": true
-      },
-      "fast.log": {
-        "size_kb": 0.0,
-        "found": true
-      }
-    }
-  },
-  {
-    "id": 92,
-    "filename": "ens33-dns_amplification_benign.pcap",
-    "file_path": "C:/Users/marie/Desktop/SecondDay/ens33-dns_amplification_benign.pcap",
-    "file_size_gb": 0.0,
-    "selection_date": "2026-06-22 12:18:44",
-    "analysis_folder": "outputs\\ens33-dns_amplification_benign_20260622_121833",
-    "pcap_name": "ens33-dns_amplification_benign",
-    "timestamp": "20260622_121833",
-    "output_files": {
-      "eve.json": {
-        "size_kb": 12048.1,
-        "found": true
-      },
-      "suricata.log": {
-        "size_kb": 3.38,
-        "found": true
-      },
-      "stats.log": {
-        "size_kb": 3.78,
-        "found": true
-      },
-      "fast.log": {
-        "size_kb": 0.0,
-        "found": true
-      }
-    }
-  },
-  {
-    "id": 93,
-    "filename": "Tuesday-WorkingHours.pcap",
-    "file_path": "C:/Users/marie/Desktop/Dataset2017/Tuesday-WorkingHours.pcap",
-    "file_size_gb": 10.29,
-    "selection_date": "2026-06-22 16:45:19",
-    "analysis_folder": "outputs\\Tuesday-WorkingHours_20260622_164247",
-    "pcap_name": "Tuesday-WorkingHours",
-    "timestamp": "20260622_164247",
-    "output_files": {
-      "eve.json": {
-        "size_kb": 719375.11,
-        "found": true
-      },
-      "suricata.log": {
-        "size_kb": 3.38,
-        "found": true
-      },
-      "stats.log": {
-        "size_kb": 218.8,
-        "found": true
-      },
-      "fast.log": {
-        "size_kb": 788.32,
-        "found": true
-      }
-    }
-  },
-  {
-    "id": 94,
-    "filename": "Tuesday-WorkingHours.pcap",
-    "file_path": "C:/Users/marie/Desktop/Dataset2017/Tuesday-WorkingHours.pcap",
-    "file_size_gb": 10.29,
-    "selection_date": "2026-06-22 16:57:24",
-    "analysis_folder": "outputs\\Tuesday-WorkingHours_20260622_165500",
-    "pcap_name": "Tuesday-WorkingHours",
-    "timestamp": "20260622_165500",
-    "output_files": {
-      "eve.json": {
-        "size_kb": 719435.98,
-        "found": true
-      },
-      "suricata.log": {
-        "size_kb": 3.4,
-        "found": true
-      },
-      "stats.log": {
-        "size_kb": 206.78,
-        "found": true
-      },
-      "fast.log": {
-        "size_kb": 788.34,
-        "found": true
-      }
-    }
-  },
-  {
-    "id": 95,
-    "filename": "ens33-dns_amplification_benign.pcap",
-    "file_path": "C:/Users/marie/Desktop/SecondDay/ens33-dns_amplification_benign.pcap",
-    "file_size_gb": 0.0,
-    "selection_date": "2026-06-23 11:15:24",
-    "analysis_folder": "outputs\\ens33-dns_amplification_benign_20260623_111507",
-    "pcap_name": "ens33-dns_amplification_benign",
-    "timestamp": "20260623_111507",
-    "output_files": {
-      "eve.json": {
-        "size_kb": 12048.11,
-        "found": true
-      },
-      "suricata.log": {
-        "size_kb": 3.38,
-        "found": true
-      },
-      "stats.log": {
-        "size_kb": 3.78,
-        "found": true
-      },
-      "fast.log": {
-        "size_kb": 0.0,
-        "found": true
-      }
-    }
-  },
-  {
-    "id": 96,
-    "filename": "right.pcap",
-    "file_path": "C:/Users/marie/Downloads/right.pcap",
-    "file_size_gb": 0.0,
-    "selection_date": "2026-07-01 11:40:14",
-    "analysis_folder": "outputs\\right_20260701_114001",
-    "pcap_name": "right",
-    "timestamp": "20260701_114001",
-    "output_files": {
-      "eve.json": {
-        "size_kb": 8821.82,
-        "found": true
-      },
-      "suricata.log": {
-        "size_kb": 3.29,
-        "found": true
-      },
-      "stats.log": {
-        "size_kb": 6.6,
-        "found": true
-      },
-      "fast.log": {
-        "size_kb": 0.0,
-        "found": true
-      }
-    }
+    },
+    "cicflowmeter_status": "success",
+    "preprocessing_status": "success",
+    "classification_status": "success",
+    "classification_distribution": {
+      "Benign": 408922,
+      "DoS attacks-SlowHTTPTest": 588,
+      "FTP-BruteForce": 263,
+      "DoS attacks-Slowloris": 185,
+      "DoS attacks-Hulk": 32,
+      "SSH-Bruteforce": 28,
+      "DoS attacks-GoldenEye": 16,
+      "DDoS attacks-LOIC-HTTP": 12
+    },
+    "anomaly_status": "success",
+    "anomaly_count": 91036,
+    "normal_count": 319010,
+    "unification_status": "success",
+    "matched_flows": 28568,
+    "unmatched_flows": 381478,
+    "risk_status": "success",
+    "risk_distribution": {
+      "CRITIQUE": 1441,
+      "ELEVE": 15,
+      "MOYEN": 116735,
+      "NORMAL": 291855
+    },
+    "total_rows": 410046
   }
 ]

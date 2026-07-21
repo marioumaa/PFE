@@ -1,0 +1,110 @@
+============================================================
+ ANALYSEUR PCAP - DEPENDANCES ET MAINTENANCE
+============================================================
+
+LANCEMENT DE L'APPLICATION
+------------------------------------------------------------
+Depuis la racine du projet, avec l'environnement Python du
+projet actif :
+
+    streamlit run app.py
+
+Streamlit ouvre automatiquement l'application dans le
+navigateur (par défaut sur http://localhost:8501).
+
+
+PREREQUIS SYSTEME
+------------------------------------------------------------
+- Npcap
+  Pilote de capture réseau requis à la fois par Suricata et
+  par CICFlowMeter (jnetpcap), même pour analyser hors-ligne
+  un fichier .pcap déjà enregistré (aucune capture live n'est
+  faite, mais le pilote doit tout de même être présent sur la
+  machine pour que ces deux outils fonctionnent).
+
+- VC++ Redistributable
+  Runtime Microsoft Visual C++ requis pour exécuter le binaire
+  Windows de Suricata (suricata.exe).
+
+- Python 3.x
+  Requis pour l'application elle-même, ainsi que pour l'outil
+  suricata-update.
+
+- Dépendances Python (bibliothèques)
+  Voir le fichier requirements.txt à la racine du projet pour
+  la liste complète et les versions exactes utilisées.
+
+  Pour les installer toutes en une seule commande, depuis la
+  racine du projet (environnement virtuel activé) :
+
+    pip install -r requirements.txt
+
+ 
+
+
+MAINTENIR LES REGLES SURICATA A JOUR
+------------------------------------------------------------
+L'efficacité de la détection Suricata dépend directement de la
+fraîcheur de ses règles : sans mise à jour régulière, les
+menaces les plus récentes ne sont pas détectées. De manière
+générale, la mise à jour des règles Suricata se fait via
+l'outil "suricata-update", qui s'installe avec pip et se lance
+régulièrement (par exemple une fois par semaine, ou avant
+chaque nouvelle campagne d'analyses) :
+
+1. Installer l'outil (une seule fois) :
+
+    pip install suricata-update
+
+2. Lancer une mise à jour des règles (à adapter selon la
+   configuration réelle du projet - chemins de suricata.yaml,
+   du dossier de règles, et de la liste des règles désactivées) :
+
+    suricata-update -c "Suricata\suricata.yaml" -D "Suricata" -o "Suricata\rules" --disable-conf "Suricata\disable.conf" 
+
+   --disable-conf réapplique la liste des règles désactivées
+   (faux positifs identifiés lors des tests sur des PCAP réels
+   - voir Suricata/disable.conf).
+  
+
+
+
+
+
+MODELES DE CLASSIFICATION ALTERNATIFS
+------------------------------------------------------------
+Le dossier models/ contient, en plus du modèle actif, deux
+alternatives entraînées sur les mêmes 70 features CICFlowMeter :
+
+  - classifieur1_rf.joblib      -> modèle actif (Random Forest)
+  - classifieur_lightgbm.joblib -> LightGBM
+  - classifieur_xgboost.joblib  -> XGBoost
+
+Pourquoi changer de modèle n'est pas qu'un simple changement de
+chemin :
+
+Random Forest (scikit-learn) a été entraîné directement sur les
+noms de classe en texte ("Benign", "DDoS attacks-LOIC-HTTP",
+...) : model.predict() renvoie donc déjà ces chaînes.
+
+LightGBM et XGBoost, eux, ont été entraînés sur des classes
+encodées en entiers (0, 1, 2, ...) : leurs fichiers .joblib
+contiennent donc une clé supplémentaire "label_encoder" (un
+sklearn.preprocessing.LabelEncoder déjà ajusté) qui permet de
+retrouver le nom de classe d'origine à partir de l'entier
+prédit. classify_cicflowmeter_csv (dans ml_preprocessing.py)
+gère déjà ce décodage automatiquement :
+
+    y_classification = model.predict(X.values)
+    if label_encoder is not None:
+        y_classification = label_encoder.inverse_transform(y_classification)
+
+Sans ce décodage, la colonne "classification" contiendrait des
+entiers au lieu des noms de classe, ce qui casserait le calcul
+du niveau de risque et les dashboards (qui comparent
+classification != "Benign").
+
+Pour changer de modèle : passer
+model_path="models/classifieur_xgboost.joblib" (ou
+classifieur_lightgbm.joblib) à classify_cicflowmeter_csv, ou
+changer CLASSIFIER_MODEL_PATH dans config.py.

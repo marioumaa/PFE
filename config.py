@@ -1,12 +1,11 @@
 """Configuration centralisée du projet."""
 
-import os
 from pathlib import Path
-from typing import Dict, List
 
-# Chemins
+# Chemins (relatifs à la racine du projet, portables d'un poste à l'autre)
 PROJECT_ROOT = Path(__file__).parent
 OUTPUTS_DIR = PROJECT_ROOT / "outputs"
+SURICATA_DIR = PROJECT_ROOT / "Suricata"
 HISTORY_FILE = PROJECT_ROOT / "pcap_history.json"
 
 # Créer les répertoires s'ils n'existent pas
@@ -15,33 +14,36 @@ OUTPUTS_DIR.mkdir(exist_ok=True)
 # Configuration Suricata
 SURICATA_TIMEOUT = 1200  # 20 minutes
 SURICATA_PATHS = [
-    r"C:\Program Files\Suricata\suricata.exe",
-    "suricata"
+    str(SURICATA_DIR / "suricata.exe"),
+    "suricata",  # repli sur le PATH système si l'exécutable local est absent
 ]
+SURICATA_CONFIG_FILE = str(SURICATA_DIR / "suricata.yaml")
 
-# Configuration CICFlowMeter
-CICFLOWMETER_PATH = r"C:\Users\marie\Desktop\CICFlowMeter-master"
-CICFLOWMETER_TIMEOUT = 1800  # 30 minutes
-CICFLOWMETER_COMMAND = ["mvn", "exec:java"]
+# Dossier de cache MPM (sgh-mpm-caching-path dans suricata.yaml) : le créer à
+# l'avance évite que Suricata saute silencieusement la mise en cache si le
+# dossier n'existe pas encore sur un poste tout juste installé.
+(SURICATA_DIR / "cache" / "sgh").mkdir(parents=True, exist_ok=True)
 
+# Configuration CICFlowMeter (extraction de features de flux réseau, pcap -> csv)
+CICFLOWMETER_DIR = PROJECT_ROOT / "CICFlowMeter-master"
+CICFLOWMETER_JAR = str(CICFLOWMETER_DIR / "target" / "CICFlowMeterV3-0.0.4-SNAPSHOT.jar")
+CICFLOWMETER_NATIVE_DIR = str(CICFLOWMETER_DIR / "jnetpcap" / "win" / "jnetpcap-1.4.r1425")
+CICFLOWMETER_MAIN_CLASS = "cic.cs.unb.ca.ifm.Cmd"
+CICFLOWMETER_TIMEOUT = 1200  # 20 minutes, comme Suricata
 
-# Configuration ML - Classification
-ML_MODEL_PATH = r"C:\Users\marie\Desktop\Dataset2018\Processed Traffic Data for ML Algorithms\randomforestdernier_model.pkl"
+# Configuration log4j "silencieuse" : le log4j.properties embarqué dans le jar
+# CICFlowMeter écrit par défaut des logs de debug illimités (jusqu'à 5 Go) dans un
+# dossier logs/ créé relativement au répertoire de travail du process Python. On la
+# remplace par une config minimale (console uniquement) via -Dlog4j.configuration.
+CICFLOWMETER_LOG4J_CONFIG = (CICFLOWMETER_DIR / "log4j-quiet.properties").as_uri()
 
-# Configuration ML - Détection d'anomalies (Unsupervised)
-ML_ANOMALY_MODEL_PATH = r"C:\Users\marie\Desktop\Dataset2018\Processed Traffic Data for ML Algorithms\Elliptic_Envelope.joblib"
+# Modèle de classification ML (Random Forest entraîné sur les features CICFlowMeter)
+MODELS_DIR = PROJECT_ROOT / "models"
+CLASSIFIER_MODEL_PATH = str(MODELS_DIR / "classifieur1_rf.joblib")
 
-# Configuration des fichiers
-SURICATA_OUTPUT_FILES = {
-    "eve.json": "Logs d'événements (alertes, flows, etc)",
-    "suricata.log": "Fichier log principal de Suricata",
-    "stats.log": "Statistiques de traitement",
-    "fast.log": "Alertes en format rapide"
-}
-
-CICFLOWMETER_OUTPUT_FILES = {
-    "flows.csv": "Fichier CSV contenant les features des flows extraits"
-}
+# Modèle de détection d'anomalies non-supervisé (Isolation Forest), en complément du
+# classifieur : {"model", "features", "seuil", "fpr"}
+ANOMALY_MODEL_PATH = str(MODELS_DIR / "anomaly_isolation_forest.joblib")
 
 # Configuration JSON
 JSON_INDENT = 2

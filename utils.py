@@ -3,7 +3,7 @@
 import json
 import os
 from pathlib import Path
-from typing import Any, Dict, List, Optional
+from typing import Any, Dict, Optional
 
 from config import DEFAULT_ENCODING, JSON_INDENT, JSON_ENSURE_ASCII
 from logger import setup_logging
@@ -22,7 +22,11 @@ def load_json_file(filepath: str) -> Optional[Dict[str, Any]]:
     """
     try:
         with open(filepath, 'r', encoding=DEFAULT_ENCODING) as f:
-            return json.load(f)
+            content = f.read()
+        if not content.strip():
+            # Fichier vide (ex: première exécution) : pas une erreur, juste absence de données.
+            return None
+        return json.loads(content)
     except FileNotFoundError:
         logger.warning(f"Fichier non trouvé: {filepath}")
         return None

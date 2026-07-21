@@ -1,0 +1,34 @@
+# Bytecode Python
+__pycache__/
+*.pyc
+
+# Environnements virtuels
+.venv/
+venv/
+env/
+
+# Données d'analyse (peuvent contenir des données réseau sensibles du client audité)
+outputs/
+
+
+# Installation Suricata (binaire + règles, volumineux — à installer séparément sur chaque poste)
+Suricata/
+
+# Installation CICFlowMeter (jar compilé + jnetpcap, volumineux — installé séparément aussi)
+CICFlowMeter-master/
+
+# Modèles ML entraînés (fichiers .joblib volumineux, ~100 Mo — à livrer séparément)
+models/
+
+# Logs internes de CICFlowMeter (normalement neutralisés par log4j-quiet.properties,
+# mais on se protège si quelqu'un le lance sans passer par notre wrapper Python)
+logs/
+
+# Secrets Streamlit (si utilisés un jour)
+.streamlit/secrets.toml
+
+# Fichiers d'IDE / OS
+.vscode/
+.idea/
+Thumbs.db
+.DS_Store

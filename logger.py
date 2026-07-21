@@ -2,7 +2,6 @@
 
 import logging
 import sys
-from pathlib import Path
 
 # Formatter personnalisé
 class ColoredFormatter(logging.Formatter):
@@ -24,14 +23,23 @@ class ColoredFormatter(logging.Formatter):
 
 def setup_logging(name: str, level: int = logging.INFO) -> logging.Logger:
     """Configure le logging pour le projet."""
-    
+
     logger = logging.getLogger(name)
     logger.setLevel(level)
-    
+
     # Éviter les handlers dupliqués
     if logger.handlers:
         return logger
-    
+
+    # Forcer l'UTF-8 sur la sortie console : par défaut, le terminal Windows
+    # utilise souvent cp1252, ce qui affiche les caractères accentués comme
+    # des symboles illisibles (ex: "d�faut" au lieu de "défaut").
+    if hasattr(sys.stdout, "reconfigure"):
+        try:
+            sys.stdout.reconfigure(encoding="utf-8", errors="replace")
+        except (ValueError, OSError):
+            pass
+
     # Handler console
     console_handler = logging.StreamHandler(sys.stdout)
     console_handler.setLevel(level)
