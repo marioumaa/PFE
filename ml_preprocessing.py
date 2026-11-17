@@ -17,6 +17,11 @@ Produit jusqu'à trois fichiers à partir d'un seul CSV CICFlowMeter :
     ce fichier disponible, enrichi à nouveau des colonnes "anomalie" et
     "score_anomalie" (détecteur d'anomalies, via detect_anomalies_cicflowmeter_csv).
     Le fichier final contient donc les résultats des deux modèles ensemble.
+
+Ces trois fonctions nettoient toutes le même CSV CICFlowMeter (via _clean_and_prepare) :
+ce nettoyage n'est donc effectué qu'une seule fois par fichier, son résultat étant mis
+en cache pour les appels suivants (voir _clean_and_prepare) plutôt que d'être relu et
+recalculé à chaque étape.
 """
 
 import os
@@ -33,11 +38,19 @@ from utils import file_exists
 
 logger = setup_logging(__name__)
 
+# Cache du dernier nettoyage effectué par _clean_and_prepare, pour éviter de relire et
+# renettoyer le même CSV CICFlowMeter à chaque étape du pipeline (prétraitement,
+# classification, détection d'anomalies appellent toutes les trois cette fonction sur
+# le même fichier). Une seule entrée : le pipeline ne traite qu'un PCAP à la fois, et
+# ne revient jamais sur un fichier précédent une fois passé à l'étape suivante.
+_last_clean_and_prepare_cache: Dict[str, Tuple[pd.DataFrame, pd.DataFrame, int, int]] = {}
+
 # Colonnes texte/identifiants à préserver telles quelles pendant le nettoyage NaN/inf :
 # elles ne doivent jamais passer par pd.to_numeric ni participer au masque de filtrage.
 TEXT_COLUMNS = {"Flow ID", "Src IP", "Dst IP", "Timestamp", "Label"}
 
-# CICFlowMeter (nommage "verbeux") -> nommage abrégé attendu par le modèle (convention CICIDS2017)
+# CICFlowMeter (nommage "verbeux") -> nommage abrégé attendu par les modèles (convention du
+# jeu d'entraînement CICIDS2018, ex: "Tot Fwd Pkts")
 RENAME_MAP = {
     "Total Fwd Packet": "Tot Fwd Pkts",
     "Total Bwd packets": "Tot Bwd Pkts",
@@ -99,20 +112,16 @@ DROP_COLUMNS = [
 
 
 def _clean_and_prepare(csv_path: str) -> Tuple[pd.DataFrame, pd.DataFrame, int, int]:
-    """Charge et nettoie le CSV CICFlowMeter, puis prépare la copie ML.
+    
+    cached = _last_clean_and_prepare_cache.get(csv_path)
+    if cached is not None:
+        cached_df_clean, cached_df_copie, rows_before, rows_after = cached
+        return cached_df_clean.copy(), cached_df_copie.copy(), rows_before, rows_after
 
-    Logique partagée par preprocess_cicflowmeter_csv (sauvegarde seule) et
-    classify_cicflowmeter_csv (sauvegarde + classification) : garder cette étape
-    unique évite toute divergence entre les deux usages du nettoyage.
-
-    Returns:
-        (df_clean, df_copie, rows_before, rows_after)
-    """
     df = pd.read_csv(csv_path)
     df.columns = df.columns.str.strip()
     rows_before = len(df)
 
-    # Colonnes de features = toutes sauf les colonnes texte/identifiants connues
     text_cols_present = [c for c in TEXT_COLUMNS if c in df.columns]
     numeric_cols = [c for c in df.columns if c not in text_cols_present]
 
@@ -120,21 +129,18 @@ def _clean_and_prepare(csv_path: str) -> Tuple[pd.DataFrame, pd.DataFrame, int, 
     numeric_view = numeric_view.replace([np.inf, -np.inf], np.nan)
     valid_rows_mask = ~numeric_view.isna().any(axis=1)
 
-    # Masque appliqué au DataFrame complet (pas à la vue convertie) : les colonnes
-    # texte des lignes conservées restent donc intactes, non passées par to_numeric.
     df_clean = df[valid_rows_mask].reset_index(drop=True)
     rows_after = len(df_clean)
 
-    # Copie prétraitée pour le modèle : renommage, suppression des colonnes non-features,
-    # conversion en float32. df_clean et df_copie restent alignés ligne à ligne (même
-    # ordre, même index 0..n-1) : une prédiction calculée sur df_copie pourra donc être
-    # réinjectée directement dans df_clean par simple affectation positionnelle.
     df_copie = df_clean.copy()
     df_copie = df_copie.rename(columns=RENAME_MAP)
     df_copie = df_copie.drop(columns=DROP_COLUMNS, errors="ignore")
     df_copie = df_copie.astype("float32")
 
-    return df_clean, df_copie, rows_before, rows_after
+    _last_clean_and_prepare_cache.clear()
+    _last_clean_and_prepare_cache[csv_path] = (df_clean, df_copie, rows_before, rows_after)
+
+    return df_clean.copy(), df_copie.copy(), rows_before, rows_after
 
 
 def preprocess_cicflowmeter_csv(csv_path: str, output_folder: str) -> Dict[str, Any]:
@@ -204,7 +210,8 @@ def classify_cicflowmeter_csv(
     Args:
         csv_path: Chemin du CSV généré par CICFlowMeter (ex: xxx.pcap_Flow.csv)
         output_folder: Dossier où écrire les fichiers de sortie
-        model_path: Chemin du modèle joblib ({"model": ..., "features": [...]})
+        model_path: Chemin du modèle joblib ({"model": ..., "features": [...]}, plus
+            "label_encoder" pour les modèles entraînés sur des classes encodées en entiers)
 
     Returns:
         Dictionnaire avec statut, chemins des fichiers produits, et statistiques
@@ -246,7 +253,7 @@ def classify_cicflowmeter_csv(
         # Random Forest (modèle par défaut) a été entraîné directement sur les noms de
         # classe en texte : predict() renvoie déjà des chaînes, pas de label_encoder dans
         # ses artefacts. LightGBM/XGBoost (models/classifieur_lightgbm.joblib,
-        # models/classifieur_xgboost.joblib) ont été entraînés sur des classes encodées en
+        # models/classifieur_xgboost_v2.joblib) ont été entraînés sur des classes encodées en
         # entiers : leurs artefacts contiennent un LabelEncoder déjà ajusté pour retrouver
         # le nom de classe d'origine à partir de l'entier prédit.
         if label_encoder is not None:
@@ -337,9 +344,10 @@ def detect_anomalies_cicflowmeter_csv(
             }
 
         # Le CSV déjà classifié (classification + score_confiance) est la
-        # base qu'on enrichit ; la copie ML-ready est recalculée depuis le CSV brut
-        # CICFlowMeter (déterministe : même nettoyage, donc mêmes lignes dans le même
-        # ordre que celles utilisées pour produire predicted_csv_path).
+        # base qu'on enrichit ; la copie ML-ready est récupérée du cache posé par
+        # l'appel précédent (prétraitement ou classification), pas recalculée : elle
+        # contient donc bien les mêmes lignes, dans le même ordre, que celles
+        # utilisées pour produire predicted_csv_path.
         df_final = pd.read_csv(predicted_csv_path)
         _, df_copie, _, _ = _clean_and_prepare(csv_path)
 

@@ -37,13 +37,15 @@ CICFLOWMETER_TIMEOUT = 1200  # 20 minutes, comme Suricata
 # remplace par une config minimale (console uniquement) via -Dlog4j.configuration.
 CICFLOWMETER_LOG4J_CONFIG = (CICFLOWMETER_DIR / "log4j-quiet.properties").as_uri()
 
-# Modèle de classification ML (Random Forest entraîné sur les features CICFlowMeter)
+# Dossier des modèles ML
 MODELS_DIR = PROJECT_ROOT / "models"
-CLASSIFIER_MODEL_PATH = str(MODELS_DIR / "classifieur1_rf.joblib")
+
+# Modèle de classification ML (Random Forest entraîné sur les features CICFlowMeter)
+CLASSIFIER_MODEL_PATH = str(MODELS_DIR / "classifieur_rf_v2.joblib")
 
 # Modèle de détection d'anomalies non-supervisé (Isolation Forest), en complément du
 # classifieur : {"model", "features", "seuil", "fpr"}
-ANOMALY_MODEL_PATH = str(MODELS_DIR / "anomaly_isolation_forest.joblib")
+ANOMALY_MODEL_PATH = str(MODELS_DIR / "anomaly_isolation_forest_v2.joblib")
 
 # Configuration JSON
 JSON_INDENT = 2

@@ -37,21 +37,34 @@ logger = setup_logging(__name__)
 # (CICFlowMeter, colonne "Protocol") : nécessaire pour que la clé de jointure
 # 5-tuple soit comparable des deux côtés.
 PROTO_NAME_TO_INT = {"TCP": 6, "UDP": 17, "ICMP": 1}
+PROTO_INT_TO_NAME = {number: name for name, number in PROTO_NAME_TO_INT.items()}
+
+
+def _protocol_to_text(protocols: pd.Series) -> pd.Series:
+    """Convertit le numéro de protocole (6, 17, 1...) en texte (TCP, UDP, ICMP) pour le
+    CSV final. Un numéro hors TCP/UDP/ICMP est écrit "Autre (n)"."""
+
+    def _label(value: Any) -> str:
+        if pd.isna(value):
+            return ""
+        number = int(value)
+        return PROTO_INT_TO_NAME.get(number, f"Autre ({number})")
+
+    return protocols.map(_label)
+
 
 # Seuil de confiance du classifieur en-dessous duquel une classification non-bénigne
 # n'est PAS comptée comme signal de risque (prédiction jugée trop peu fiable). Isolé
-# en constante pour pouvoir l'ajuster facilement (ex: 0.6 -> 0.65) selon ce qui est
+# en constante pour pouvoir l'ajuster facilement  selon ce qui est
 # observé sur des PCAP réels, sans devoir modifier la logique de compute_risk_levels.
-RISK_CLASSIFIER_CONFIDENCE_THRESHOLD = 0.6
+RISK_CLASSIFIER_CONFIDENCE_THRESHOLD = 0.5
 
 # Ordre d'affichage/de tri des niveaux de risque, du plus au moins grave.
 RISK_LEVEL_ORDER = ["CRITIQUE", "ELEVE", "MOYEN", "NORMAL"]
 
 
 def _cle_5tuple(ip1: Any, port1: Any, ip2: Any, port2: Any, proto: Any) -> Tuple[Tuple[str, int], Tuple[str, int], int]:
-    """Construit une clé 5-tuple normalisée pour joindre un flux CICFlowMeter à une
-    alerte Suricata, indépendamment du sens du flux (A->B et B->A donnent la même clé).
-    """
+    
     cote_a = (str(ip1), int(port1))
     cote_b = (str(ip2), int(port2))
     return tuple(sorted([cote_a, cote_b])) + (int(proto),)
@@ -288,36 +301,7 @@ def unify_predictions_with_suricata_alerts(
 
 
 def compute_risk_levels(unified_csv_path: str, output_folder: str) -> Dict[str, Any]:
-    """Calcule un niveau de risque final par flux en fusionnant trois sources
-    indépendantes (classifieur ML, détecteur d'anomalies ML, alertes Suricata) sur
-    la table déjà unifiée (voir unify_predictions_with_suricata_alerts).
-
-    Étape 1 — chaque source est réduite à un signal booléen :
-      - signal_classifieur : classification non bénigne ET confiance suffisante
-        (score_confiance >= RISK_CLASSIFIER_CONFIDENCE_THRESHOLD)
-      - signal_anomalie    : anomalie == "anormal"
-      - signal_suricata    : suricata_alerte == "oui"
-    Étape 2 — nombre de signaux actifs (0 à 3).
-    Étape 3 — niveau de risque :
-      - 2 ou 3 signaux actifs -> CRITIQUE (plusieurs couches indépendantes concordent)
-      - 1 seul signal, et c'est le classifieur -> ELEVE (le classifieur ML seul est
-        jugé assez fiable, au-dessus du seuil de confiance, pour ce niveau)
-      - 1 seul signal, et c'est l'anomalie ou Suricata -> MOYEN (détecteur non-supervisé
-        et alerte Suricata seule, à vérifier manuellement)
-      - 0 signal -> NORMAL
-    Étape 4 — colonne "raison" listant les couches ayant déclenché, avec leur détail
-    (signature Suricata, classe + confiance du classifieur, score d'anomalie). Les trois
-    signaux booléens sont eux-mêmes sauvegardés en colonnes ("signal_classifieur",
-    "signal_anomalie", "signal_suricata", valeurs "oui"/"non") pour que les dashboards
-    n'aient pas à reproduire cette logique de calcul.
-
-    Args:
-        unified_csv_path: Chemin du CSV unifié (produit par unify_predictions_with_suricata_alerts)
-        output_folder: Dossier où écrire le fichier final
-
-    Returns:
-        Dictionnaire avec statut, chemin du fichier produit, et distribution des niveaux de risque
-    """
+    
     try:
         if not file_exists(unified_csv_path):
             return {
@@ -326,7 +310,10 @@ def compute_risk_levels(unified_csv_path: str, output_folder: str) -> Dict[str, 
             }
 
         df = pd.read_csv(unified_csv_path)
-        required_cols = {"classification", "score_confiance", "anomalie", "score_anomalie", "suricata_alerte"}
+        required_cols = {
+            "classification", "score_confiance", "anomalie", "score_anomalie",
+            "suricata_alerte", "suricata_severite",
+        }
         missing_cols = required_cols - set(df.columns)
         if missing_cols:
             return {
@@ -341,16 +328,16 @@ def compute_risk_levels(unified_csv_path: str, output_folder: str) -> Dict[str, 
             score_confiance >= RISK_CLASSIFIER_CONFIDENCE_THRESHOLD
         )
         signal_anomalie = (df["anomalie"] == "anormal") & df["score_anomalie"].notna()
-        signal_suricata = df["suricata_alerte"] == "oui"
-
-        nb_signaux = signal_classifieur.astype(int) + signal_anomalie.astype(int) + signal_suricata.astype(int)
+        signal_suricata = df["suricata_alerte"].eq("oui") & df["suricata_severite"].isin([1, 2])
+        nb_sources = (
+            signal_classifieur.astype(int) + signal_anomalie.astype(int) + signal_suricata.astype(int)
+        )
+        est_critique = nb_sources >= 2
+        est_eleve = (nb_sources == 1) & signal_classifieur
+        est_moyen = (nb_sources == 1) & (signal_anomalie | signal_suricata)
 
         niveau_risque = np.select(
-            [
-                nb_signaux >= 2,
-                (nb_signaux == 1) & signal_classifieur,
-                (nb_signaux == 1) & (signal_anomalie | signal_suricata),
-            ],
+            [est_critique, est_eleve, est_moyen],
             ["CRITIQUE", "ELEVE", "MOYEN"],
             default="NORMAL",
         )
@@ -359,13 +346,13 @@ def compute_risk_levels(unified_csv_path: str, output_folder: str) -> Dict[str, 
         # composer une phrase lisible, mais un passage par zip() reste rapide même sur
         # des CSV de plusieurs centaines de milliers de lignes (cf. jointure Suricata).
         raisons = []
-        for sig_suri, sig_clf, sig_ano, signature, classe, conf, score_ano in zip(
-            signal_suricata, signal_classifieur, signal_anomalie,
+        for sig_suri, severite, sig_clf, sig_ano, signature, classe, conf, score_ano in zip(
+            signal_suricata, df["suricata_severite"], signal_classifieur, signal_anomalie,
             df["suricata_signature"], df["classification"], score_confiance, df["score_anomalie"],
         ):
             parts = []
             if sig_suri:
-                parts.append(f"Suricata: {signature}")
+                parts.append(f"Suricata sévérité {int(severite)}: {signature}")
             if sig_clf:
                 parts.append(f"Classifieur: {classe} ({conf:.2f})")
             if sig_ano:
@@ -378,9 +365,16 @@ def compute_risk_levels(unified_csv_path: str, output_folder: str) -> Dict[str, 
         # Signaux sauvegardés en colonnes ("oui"/"non", même convention que suricata_alerte)
         # plutôt que recalculés ailleurs (ex: dashboard) : une seule source de vérité pour
         # la logique de risque, aucun risque de divergence si le seuil est ajusté ici.
+        # "signal_suricata" vaut "oui" dès que Suricata a contribué (sévérité 1 ou 2) ;
+        # la sévérité elle-même reste disponible dans la colonne "suricata_severite".
         df["signal_classifieur"] = np.where(signal_classifieur, "oui", "non")
         df["signal_anomalie"] = np.where(signal_anomalie, "oui", "non")
         df["signal_suricata"] = np.where(signal_suricata, "oui", "non")
+
+        # Le protocole reste numérique jusqu'ici (la jointure Suricata en a besoin) ; le CSV
+        # final l'écrit en texte pour qu'il soit lisible tel quel dans le dashboard.
+        if "Protocol" in df.columns:
+            df["Protocol"] = _protocol_to_text(df["Protocol"])
 
         Path(output_folder).mkdir(parents=True, exist_ok=True)
         base_name = Path(unified_csv_path).stem

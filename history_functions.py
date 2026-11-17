@@ -98,7 +98,9 @@ def save_analysis_to_history(
             "home_net_used": analysis_result.get("home_net_used", "Défaut (suricata.yaml)"),
         }
 
-        # Ajouter les fichiers générés (Suricata + CICFlowMeter)
+        # Ajouter les fichiers de sortie encore présents sur le disque (journaux Suricata,
+        # CSV final ; les CSV intermédiaires n'y figurent que si le pipeline a échoué
+        # avant leur nettoyage, voir app._cleanup_intermediate_outputs)
         analysis_folder = analysis_result.get("analysis_folder")
         if analysis_folder and os.path.exists(analysis_folder):
             files_info = {}

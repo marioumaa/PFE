@@ -361,7 +361,7 @@ def _section_communication_graph(df: pd.DataFrame) -> None:
 # tel quel dans le CSV téléchargé), seul l'affichage à l'écran le renomme (voir
 # _section_priority_threats_table) pour éviter la confusion avec "score_anomalie" juste à côté.
 _PRIORITY_THREATS_COLUMNS = [
-    "Src IP", "Src Port", "Dst IP", "Dst Port", "Timestamp",
+    "Src IP", "Src Port", "Dst IP", "Dst Port", "Protocol", "Timestamp",
     "classification", "score_confiance", "score_anomalie", "anomalie",
     "suricata_alerte", "suricata_signature", "niveau_risque", "raison",
 ]
@@ -510,18 +510,23 @@ def _section_attack_classes(df: pd.DataFrame) -> None:
                 st.plotly_chart(fig, width='stretch')
 
 
-# ===== Section 7 : signatures Suricata (flux CRITIQUE uniquement) =====
+# ===== Section 7 : signatures Suricata (flux MOYEN où Suricata est seul en cause) =====
 def _section_suricata_signatures(df: pd.DataFrame) -> None:
     st.divider()
-    st.subheader("Signatures Suricata (flux CRITIQUE)")
+    st.subheader("Signatures Suricata (flux MOYEN)")
+    st.caption(
+        "Seuls les flux MOYEN pour lesquels Suricata est la seule source déclenchée (alerte "
+        "de sévérité 1 ou 2, non confirmée par le classifieur ni le détecteur d'anomalies) "
+        "sont comptés ici."
+    )
 
-    critical_alerts = df[(df["niveau_risque"] == "CRITIQUE") & (df["suricata_alerte"] == "oui")]
-    if critical_alerts.empty:
-        st.info("Aucune signature Suricata parmi les flux CRITIQUE.")
+    moyen_alerts = df[(df["niveau_risque"] == "MOYEN") & (df["signal_suricata"] == "oui")]
+    if moyen_alerts.empty:
+        st.info("Aucune signature Suricata parmi les flux MOYEN.")
         return
 
     with st.container(border=True):
-        sig_counts = critical_alerts["suricata_signature"].value_counts().head(20).sort_values()
+        sig_counts = moyen_alerts["suricata_signature"].value_counts().head(20).sort_values()
         fig = go.Figure(data=[go.Bar(
             x=sig_counts.values, y=sig_counts.index, orientation="h",
             marker=dict(color=_COLOR_ACCENT),
@@ -530,7 +535,7 @@ def _section_suricata_signatures(df: pd.DataFrame) -> None:
         fig.update_layout(
             height=max(400, 28 * len(sig_counts)),
             margin=dict(l=10, r=10, t=40, b=10),
-            title="Top 20 signatures Suricata (par nombre de flux, niveau CRITIQUE)",
+            title="Top 20 signatures Suricata (par nombre de flux, niveau MOYEN)",
             xaxis=dict(title="Nombre de flux"),
             yaxis=dict(tickfont=dict(size=10)),
             **_TRANSPARENT_LAYOUT,

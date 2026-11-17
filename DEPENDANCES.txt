@@ -76,9 +76,9 @@ MODELES DE CLASSIFICATION ALTERNATIFS
 Le dossier models/ contient, en plus du modèle actif, deux
 alternatives entraînées sur les mêmes 70 features CICFlowMeter :
 
-  - classifieur1_rf.joblib      -> modèle actif (Random Forest)
+  - classifieur_rf_v2.joblib      -> modèle actif (Random Forest)
   - classifieur_lightgbm.joblib -> LightGBM
-  - classifieur_xgboost.joblib  -> XGBoost
+  - classifieur_xgboost_v2.joblib  -> XGBoost
 
 Pourquoi changer de modèle n'est pas qu'un simple changement de
 chemin :
@@ -105,6 +105,6 @@ du niveau de risque et les dashboards (qui comparent
 classification != "Benign").
 
 Pour changer de modèle : passer
-model_path="models/classifieur_xgboost.joblib" (ou
+model_path="models/classifieur_xgboost_v2.joblib" (ou
 classifieur_lightgbm.joblib) à classify_cicflowmeter_csv, ou
 changer CLASSIFIER_MODEL_PATH dans config.py.

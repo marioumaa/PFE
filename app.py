@@ -221,10 +221,10 @@ def home_page() -> None:
 
     st.markdown("#### Niveaux de risque")
     _render_metric_cards([
-        ("Au moins 2 des 3 sources concordent — à traiter en priorité.", "CRITIQUE", _COLOR_CRITIQUE, None),
+        ("Au moins 2 sources concordent (classifieur, détecteur d'anomalies, alerte Suricata de sévérité 1 ou 2) — à traiter en priorité.", "CRITIQUE", _COLOR_CRITIQUE, None),
         ("Le classifieur ML seul a détecté une menace, avec une confiance suffisante.", "ELEVE", _COLOR_ELEVE, None),
-        ("Seul le détecteur d'anomalies ou seul Suricata a réagi — à vérifier manuellement.", "MOYEN", _COLOR_MOYEN, None),
-        ("Aucune des 3 sources n'a détecté de signal.", "NORMAL", _COLOR_NORMAL, None),
+        ("Une seule source isolée : détecteur d'anomalies seul, ou alerte Suricata seule (sévérité 1 ou 2).", "MOYEN", _COLOR_MOYEN, None),
+        ("Aucun signal significatif détecté.", "NORMAL", _COLOR_NORMAL, None),
     ])
 
     st.markdown("---")
@@ -345,7 +345,7 @@ def _pipeline_stage_states(result_holder: Optional[Dict[str, Any]]) -> List[str]
         return ["done", "done", "done", "done", "done", "done", "error", "pending"]
 
     # Le rendu des dashboards est synchrone (dans _display_selected_pcap), pas suivi
-    # par le thread d'arrière-plan : son état miroir simplement celui de la jointure.
+    # par le thread d'arrière-plan : son état est simplement le miroir de celui de la jointure.
     return ["done", "done", "done", "done", "done", "done", "done", "done"]
 
 
@@ -574,8 +574,8 @@ def _cleanup_intermediate_outputs(
 
 
 def _start_pipeline_thread(file_path: str, file_size_gb: float) -> None:
-    """Démarre le pipeline d'analyse (Suricata puis CICFlowMeter) dans un thread
-    en arrière-plan.
+    """Démarre le pipeline d'analyse complet (Suricata, CICFlowMeter, prétraitement,
+    classification, détection d'anomalies, jointure) dans un thread en arrière-plan.
 
     L'objectif est de ne pas bloquer le script Streamlit (et donc ne pas griser
     toute la page) pendant les plusieurs minutes que peut durer l'analyse d'un

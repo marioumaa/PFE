@@ -3,7 +3,7 @@
 import json
 import os
 from pathlib import Path
-from typing import Any, Dict, Optional
+from typing import Any, Optional
 
 from config import DEFAULT_ENCODING, JSON_INDENT, JSON_ENSURE_ASCII
 from logger import setup_logging
@@ -11,7 +11,7 @@ from logger import setup_logging
 logger = setup_logging(__name__)
 
 
-def load_json_file(filepath: str) -> Optional[Dict[str, Any]]:
+def load_json_file(filepath: str) -> Optional[Any]:
     """Charge un fichier JSON de manière sécurisée.
     
     Args:
