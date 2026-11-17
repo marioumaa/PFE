@@ -12,13 +12,10 @@ outputs/
 
 
 # Installation Suricata (binaire + règles, volumineux — à installer séparément sur chaque poste)
-Suricata/
 
 # Installation CICFlowMeter (jar compilé + jnetpcap, volumineux — installé séparément aussi)
-CICFlowMeter-master/
 
 # Modèles ML entraînés (fichiers .joblib volumineux, ~100 Mo — à livrer séparément)
-models/
 
 # Logs internes de CICFlowMeter (normalement neutralisés par log4j-quiet.properties,
 # mais on se protège si quelqu'un le lance sans passer par notre wrapper Python)
